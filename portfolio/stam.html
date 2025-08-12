@@ -6,279 +6,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(40px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-    .animate-fade-slide-up {
-      animation: fadeSlideUp 1s cubic-bezier(.4,0,.2,1) both;
-    }
-  </style>
+  <link rel="stylesheet" href="folder-portStam/stam.css">
 </head>
-<body class="font-[Kanit] bg-gray-900">
-
+<body>
   <!-- Sidebar -->
-  <aside class="fixed top-0 left-0 h-screen w-80 bg-gray-900 text-white flex flex-col items-center py-10 z-20">
-    <!-- Profile Image -->
-    <img src="folder-portStam/profile.jpg" alt="Profile" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
-    <h1 class="text-2xl font-bold mb-2">Suphakit Sanwongkham</h1>
-    <!-- Social Icons -->
-    <div class="flex space-x-4 mb-8">
-      <a href="#" class="hover:text-indigo-400"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="hover:text-indigo-400"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="hover:text-indigo-400"><i class="fab fa-github"></i></a>
-      <a href="#" class="hover:text-indigo-400"><i class="fab fa-linkedin-in"></i></a>
+  <aside class="sidebar">
+    <img src="folder-portStam/profile.jpg" alt="Profile" class="profile-img">
+    <h1>Suphakit Sanwongkham</h1>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
-    <!-- Menu -->
-    <nav class="flex-1 w-full px-8">
-      <ul class="space-y-6 text-lg">
-        <li><a href="#home" class="flex items-center space-x-2 text-indigo-400 font-bold"><span>🏠</span><span>Home</span></a></li>
-        <li><a href="#about" class="flex items-center space-x-2 hover:text-indigo-400"><span>👤</span><span>About</span></a></li>
-        <li><a href="#education" class="flex items-center space-x-2 hover:text-indigo-400"><span>📄</span><span>Resume</span></a></li>
-        <li><a href="#works" class="flex items-center space-x-2 hover:text-indigo-400"><span>🖼️</span><span>Portfolio</span></a></li>
-        <li><a href="#skills" class="flex items-center space-x-2 hover:text-indigo-400"><span>🛠️</span><span>Skills</span></a></li>
-        <li><a href="#contact" class="flex items-center space-x-2 hover:text-indigo-400"><span>✉️</span><span>Contact</span></a></li>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active"><span>🏠</span>Home</a></li>
+        <li><a href="#about"><span>👤</span>About</a></li>
+        <li><a href="#education"><span>📄</span>Resume</a></li>
+        <li><a href="#works"><span>🖼️</span>Portfolio</a></li>
+        <li><a href="#skills"><span>🛠️</span>Skills</a></li>
+        <li><a href="#contact"><span>✉️</span>Contact</a></li>
       </ul>
     </nav>
   </aside>
 
   <!-- Main Content -->
-  <main class="ml-0 md:ml-80 min-h-screen bg-gray-800">
+  <div class="main-content">
     <!-- Hero Section -->
-    <section id="home" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      <!-- Background Image -->
-      <img src="folder-portStam/bg-hero.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover brightness-75 z-0">
-      <!-- Overlay Content -->
-      <div class="relative z-10 flex flex-col md:flex-row items-center w-full h-full px-8">
-        <div class="flex-1"></div>
-        <div class="flex flex-col justify-center items-start animate-fade-slide-up">
-          <h1 class="text-white text-5xl md:text-6xl font-bold mb-4">Suphakit Sanwongkham</h1>
-          <h2 class="text-indigo-300 text-2xl md:text-3xl mb-2">I'm Stam</h2>
-          <p class="text-white text-lg md:text-xl bg-black bg-opacity-40 px-4 py-2 rounded-lg">
-            นักเรียนผู้หลงใหลในศิลปะและเทคโนโลยี<br>
-            ชอบสร้างสรรค์ผลงานใหม่ๆ และเรียนรู้สิ่งแปลกใหม่เสมอ
-          </p>
+    <section id="home">
+      <img src="folder-portStam/Background.jpg" alt="Background" class="hero-bg">
+      <div class="hero-info">
+        <h1>Suphakit Sanwongkham</h1>
+        <h2>Project Manager</h2>
+        <p>
+          Tomorrow doesn’t care about your excuses. It will arrive anyway,<br>
+          and it’ll show you the results of what you did—or didn’t—do today.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+      <div class="about-content">
+        <h2>About Me</h2>
+        <div>
+          สวัสดีค่ะ! ฉันชื่อสแตมป์ เป็นคนที่ชอบค้นหาความรู้ใหม่ๆ ทั้งด้านศิลปะและเทคโนโลยี  
+          มีความสุขกับการวาดภาพ ออกแบบ และทดลองสร้างโปรเจกต์ต่างๆ  
+          นอกจากนั้นยังชอบทำกิจกรรมกับเพื่อนๆ และร่วมงานเป็นทีม  
+          เป้าหมายของฉันคือการนำความคิดสร้างสรรค์มาผสมผสานกับเทคโนโลยีเพื่อสร้างสิ่งดีๆ ให้กับสังคม  
+          <br><br>
+          <span class="font-bold">"ความคิดสร้างสรรค์ + ความตั้งใจ = ผลงานที่ดีที่สุด"</span>
         </div>
       </div>
     </section>
-<!-- ...existing code... -->
-<!-- ...existing code... -->
 
-   <!-- About Me Section -->
-  <!-- ส่วนนี้จะเต็มหน้ากว้างและจัดสวยเมื่อย่อจอ -->
-  <section id="about" class="w-full py-20 px-4 bg-white bg-opacity-80 flex flex-col items-center">
-    <div class="max-w-4xl w-full mx-auto">
-      <h2 class="text-4xl font-bold text-indigo-600 mb-8 text-center">About Me</h2>
-      <div class="text-lg text-gray-700 leading-relaxed text-center md:text-left md:px-8">
-        สวัสดีค่ะ! ฉันชื่อสแตมป์ เป็นคนที่ชอบค้นหาความรู้ใหม่ๆ ทั้งด้านศิลปะและเทคโนโลยี  
-        มีความสุขกับการวาดภาพ ออกแบบ และทดลองสร้างโปรเจกต์ต่างๆ  
-        นอกจากนั้นยังชอบทำกิจกรรมกับเพื่อนๆ และร่วมงานเป็นทีม  
-        เป้าหมายของฉันคือการนำความคิดสร้างสรรค์มาผสมผสานกับเทคโนโลยีเพื่อสร้างสิ่งดีๆ ให้กับสังคม  
-        <br><br>
-        <span class="font-bold text-indigo-500">"ความคิดสร้างสรรค์ + ความตั้งใจ = ผลงานที่ดีที่สุด"</span>
+    <!-- Education Section -->
+    <section id="education">
+      <div class="edu-content">
+        <h2>ประวัติการศึกษา</h2>
+        <div class="timeline">
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <b>อนุบาล:</b> โรงเรียนอนุบาลเทศบาลตำบลป่าตัน (2551-2554)
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <b>ประถม:</b> โรงเรียนพุทธิโสภณ (2555-2560)
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <b>มัธยมต้น:</b> โรงเรียนวัฒโนทัยพายัพ (2561-2563)
+            </div>
+          </div>
+          <div class="timeline-item" data-animate>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <b>มัธยมปลาย:</b> โรงเรียนวัฒโนทัยพายัพ (2564-2566)
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education Section -->
-  <!-- Timeline + Animation เลื่อนเข้ามาเมื่อ scroll -->
-  <section id="education" class="max-w-3xl mx-auto py-16 px-4">
-    <h2 class="text-3xl font-bold text-indigo-600 mb-10 text-center">ประวัติการศึกษา</h2>
-    <div class="space-y-8">
-      <!-- Timeline Card 1 -->
-      <div class="flex items-center animate-slide-in-left opacity-0" data-animate>
-        <div class="w-8 h-8 bg-indigo-400 rounded-full flex-shrink-0 mr-6"></div>
-        <div class="bg-indigo-50 p-6 rounded-xl shadow-md w-full">
-          <div class="font-bold text-indigo-700">อนุบาล</div>
-          <div class="text-gray-700">โรงเรียนอนุบาลสายรุ้ง (2551-2554)</div>
+    <!-- Works/Projects Section -->
+    <section id="works">
+      <div class="works-content">
+        <h2>ผลงานเด่น</h2>
+        <div class="works-list">
+          <div class="work-card" data-animate>
+            <img src="https://i.imgur.com/your-work1.jpg" class="work-img" alt="work1">
+            <div class="work-title">รางวัลชนะเลิศวาดภาพ</div>
+            <div class="work-desc">ประกวดวาดภาพระดับจังหวัด ปี 2565</div>
+          </div>
+          <div class="work-card" data-animate>
+            <img src="https://i.imgur.com/your-work2.jpg" class="work-img" alt="work2">
+            <div class="work-title">โครงงาน IoT</div>
+            <div class="work-desc">สร้างระบบบ้านอัจฉริยะด้วย Arduino</div>
+          </div>
+          <div class="work-card" data-animate>
+            <img src="https://i.imgur.com/your-work3.jpg" class="work-img" alt="work3">
+            <div class="work-title">เว็บไซต์ Portfolio</div>
+            <div class="work-desc">ออกแบบและพัฒนาเว็บไซต์ส่วนตัว</div>
+          </div>
         </div>
       </div>
-      <!-- Timeline Card 2 -->
-      <div class="flex items-center animate-slide-in-right opacity-0" data-animate>
-        <div class="w-8 h-8 bg-indigo-400 rounded-full flex-shrink-0 mr-6"></div>
-        <div class="bg-indigo-50 p-6 rounded-xl shadow-md w-full">
-          <div class="font-bold text-indigo-700">ประถม</div>
-          <div class="text-gray-700">โรงเรียนบ้านดอน (2555-2560)</div>
-        </div>
-      </div>
-      <!-- Timeline Card 3 -->
-      <div class="flex items-center animate-slide-in-left opacity-0" data-animate>
-        <div class="w-8 h-8 bg-indigo-400 rounded-full flex-shrink-0 mr-6"></div>
-        <div class="bg-indigo-50 p-6 rounded-xl shadow-md w-full">
-          <div class="font-bold text-indigo-700">มัธยมต้น</div>
-          <div class="text-gray-700">โรงเรียนสาธิตวิทยา (2561-2563)</div>
-        </div>
-      </div>
-      <!-- Timeline Card 4 -->
-      <div class="flex items-center animate-slide-in-right opacity-0" data-animate>
-        <div class="w-8 h-8 bg-indigo-400 rounded-full flex-shrink-0 mr-6"></div>
-        <div class="bg-indigo-50 p-6 rounded-xl shadow-md w-full">
-          <div class="font-bold text-indigo-700">มัธยมปลาย</div>
-          <div class="text-gray-700">โรงเรียนเตรียมอุดมศึกษา (2564-2566)</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Works/Projects Section -->
-  <!-- Grid + Hover effect + Animation -->
-  <section id="works" class="max-w-5xl mx-auto py-16 px-4">
-    <h2 class="text-3xl font-bold text-indigo-600 mb-10 text-center">ผลงานเด่น</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Work Card 1 -->
-      <div class="bg-indigo-50 rounded-xl shadow-md overflow-hidden transform transition hover:scale-105 hover:shadow-xl animate-fade-slide-up opacity-0" data-animate>
-        <img src="https://i.imgur.com/your-work1.jpg" alt="work1" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <div class="font-bold text-indigo-700 mb-2">รางวัลชนะเลิศวาดภาพ</div>
-          <div class="text-gray-700">ประกวดวาดภาพระดับจังหวัด ปี 2565</div>
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="skills-content">
+        <h2>ทักษะส่วนตัว</h2>
+        <div>
+          <div class="skill-label">
+            <span>วาดภาพ</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar" data-skill="90"></div>
+          </div>
+        </div>
+        <div>
+          <div class="skill-label">
+            <span>เขียนโปรแกรม</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar" data-skill="80"></div>
+          </div>
+        </div>
+        <div>
+          <div class="skill-label">
+            <span>นำเสนอผลงาน</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar" data-skill="85"></div>
+          </div>
+        </div>
+        <div>
+          <div class="skill-label">
+            <span>ทำงานเป็นทีม</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar-bg">
+            <div class="skill-bar" data-skill="95"></div>
+          </div>
         </div>
       </div>
-      <!-- Work Card 2 -->
-      <div class="bg-indigo-50 rounded-xl shadow-md overflow-hidden transform transition hover:scale-105 hover:shadow-xl animate-fade-slide-up opacity-0" data-animate>
-        <img src="https://i.imgur.com/your-work2.jpg" alt="work2" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <div class="font-bold text-indigo-700 mb-2">โครงงาน IoT</div>
-          <div class="text-gray-700">สร้างระบบบ้านอัจฉริยะด้วย Arduino</div>
-        </div>
-      </div>
-      <!-- Work Card 3 -->
-      <div class="bg-indigo-50 rounded-xl shadow-md overflow-hidden transform transition hover:scale-105 hover:shadow-xl animate-fade-slide-up opacity-0" data-animate>
-        <img src="https://i.imgur.com/your-work3.jpg" alt="work3" class="w-full h-40 object-cover">
-        <div class="p-6">
-          <div class="font-bold text-indigo-700 mb-2">เว็บไซต์ Portfolio</div>
-          <div class="text-gray-700">ออกแบบและพัฒนาเว็บไซต์ส่วนตัว</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <!-- Progress bar + Animation -->
-  <section id="skills" class="max-w-3xl mx-auto py-16 px-4">
-    <h2 class="text-3xl font-bold text-indigo-600 mb-10 text-center">ทักษะส่วนตัว</h2>
-    <div class="space-y-8">
-      <!-- Skill 1 -->
-      <div>
-        <div class="flex justify-between mb-2">
-          <span class="font-bold text-indigo-700">วาดภาพ</span>
-          <span class="font-bold text-indigo-700">90%</span>
-        </div>
-        <div class="w-full bg-indigo-100 rounded-full h-5">
-          <div class="bg-indigo-400 h-5 rounded-full progress-bar" style="width:0%;" data-skill="90"></div>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-content">
+        <h2>ติดต่อ</h2>
+        <form id="contactForm" class="contact-form">
+          <label>ชื่อ</label>
+          <input type="text" name="name" required>
+          <label>อีเมล</label>
+          <input type="email" name="email" required>
+          <label>ข้อความ</label>
+          <textarea name="message" required rows="4"></textarea>
+          <button type="submit">ส่งข้อความ</button>
+        </form>
       </div>
-      <!-- Skill 2 -->
-      <div>
-        <div class="flex justify-between mb-2">
-          <span class="font-bold text-indigo-700">เขียนโปรแกรม</span>
-          <span class="font-bold text-indigo-700">80%</span>
-        </div>
-        <div class="w-full bg-indigo-100 rounded-full h-5">
-          <div class="bg-indigo-400 h-5 rounded-full progress-bar" style="width:0%;" data-skill="80"></div>
-        </div>
-      </div>
-      <!-- Skill 3 -->
-      <div>
-        <div class="flex justify-between mb-2">
-          <span class="font-bold text-indigo-700">นำเสนอผลงาน</span>
-          <span class="font-bold text-indigo-700">85%</span>
-        </div>
-        <div class="w-full bg-indigo-100 rounded-full h-5">
-          <div class="bg-indigo-400 h-5 rounded-full progress-bar" style="width:0%;" data-skill="85"></div>
-        </div>
-      </div>
-      <!-- Skill 4 -->
-      <div>
-        <div class="flex justify-between mb-2">
-          <span class="font-bold text-indigo-700">ทำงานเป็นทีม</span>
-          <span class="font-bold text-indigo-700">95%</span>
-        </div>
-        <div class="w-full bg-indigo-100 rounded-full h-5">
-          <div class="bg-indigo-400 h-5 rounded-full progress-bar" style="width:0%;" data-skill="95"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <!-- ฟอร์มติดต่อ + JS popup -->
-  <section id="contact" class="max-w-2xl mx-auto py-16 px-4">
-    <h2 class="text-3xl font-bold text-indigo-600 mb-10 text-center">ติดต่อ</h2>
-    <form id="contactForm" class="bg-indigo-50 p-8 rounded-xl shadow-md space-y-6">
-      <div>
-        <label class="block font-bold text-indigo-700 mb-2">ชื่อ</label>
-        <input type="text" name="name" required class="w-full p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+    <!-- Popup ขอบคุณ -->
+    <div id="thankPopup" class="hidden">
+      <div class="popup-content">
+        <h3 class="text-2xl font-bold text-indigo-600 mb-4">ขอบคุณสำหรับการติดต่อ!</h3>
+        <p class="mb-6">เราจะติดต่อกลับโดยเร็วที่สุด</p>
+        <button onclick="document.getElementById('thankPopup').classList.add('hidden')"
+          style="padding:10px 24px;background:#6366f1;color:#fff;border:none;border-radius:8px;font-weight:bold;cursor:pointer;">
+          ปิด
+        </button>
       </div>
-      <div>
-        <label class="block font-bold text-indigo-700 mb-2">อีเมล</label>
-        <input type="email" name="email" required class="w-full p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-      </div>
-      <div>
-        <label class="block font-bold text-indigo-700 mb-2">ข้อความ</label>
-        <textarea name="message" required rows="4" class="w-full p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
-      </div>
-      <button type="submit"
-        class="w-full py-3 bg-indigo-500 text-white font-bold rounded-lg transition hover:bg-indigo-600 hover:scale-105">
-        ส่งข้อความ
-      </button>
-    </form>
-  </section>
-
-  <!-- Popup ขอบคุณ -->
-  <div id="thankPopup"
-    class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-xl shadow-xl p-8 text-center">
-      <h3 class="text-2xl font-bold text-indigo-600 mb-4">ขอบคุณสำหรับการติดต่อ!</h3>
-      <p class="text-gray-700 mb-6">เราจะติดต่อกลับโดยเร็วที่สุด</p>
-      <button onclick="document.getElementById('thankPopup').classList.add('hidden')"
-        class="px-6 py-2 bg-indigo-500 text-white rounded-lg font-bold hover:bg-indigo-600 transition">
-        ปิด
-      </button>
     </div>
   </div>
- </main>
   <script src="https://kit.fontawesome.com/4b7e1e6e8a.js" crossorigin="anonymous"></script>
-  <!-- JS สำหรับ Animation และ Popup -->
-  <script>
-    // Intersection Observer สำหรับ animate section เมื่อ scroll ถึง
-    document.addEventListener('DOMContentLoaded', function () {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove('opacity-0');
-          }
-        });
-      }, { threshold: 0.2 });
-
-      document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-
-      // Animate progress bar เมื่อ scroll ถึง
-      const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.progress-bar').forEach(bar => {
-              bar.style.width = bar.dataset.skill + '%';
-            });
-          }
-        });
-      }, { threshold: 0.4 });
-
-      document.querySelectorAll('#skills').forEach(el => skillObserver.observe(el));
-    });
-
-    // JS สำหรับ Contact Popup
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('thankPopup').classList.remove('hidden');
-      this.reset();
-    });
-  </script>
-  <!--
-    หมายเหตุ:
-    - ใช้ Tailwind CSS สำหรับจัดการสไตล์ Responsive
-    - ใช้ keyframes และ transition สำหรับ Animation
-    - มี comment อธิบายแต่ละ section ใน HTML
-    -
+  <script src="folder-portStam/stam.js"></script>
+  
+   
