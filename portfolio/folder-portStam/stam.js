@@ -46,3 +46,87 @@
         const el = document.getElementById(id);
       }
     });
+
+    // ...existing code...
+
+// Section fade-in on scroll
+document.addEventListener('scroll', function () {
+  document.querySelectorAll('section').forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 120) {
+      sec.classList.add('visible');
+    }
+  });
+});
+
+// Scroll indicator
+window.addEventListener('scroll', function () {
+  const scrollIndicator = document.getElementById('scrollIndicator');
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const percent = docHeight ? (scrollTop / docHeight) * 100 : 0;
+  scrollIndicator.style.width = percent + '%';
+});
+
+// stam.js
+document.addEventListener('scroll', function () {
+  document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 120) {
+      sec.classList.add('visible');
+    }
+  });
+});
+
+//NameAni
+document.addEventListener('DOMContentLoaded', function () {
+  const text = "Suphakit Sanwongkham";
+  const el = document.getElementById('NameAni');
+  let i = 0;
+  function type() {
+    if (el && i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+  type();
+});
+
+//Project Manager
+document.addEventListener('DOMContentLoaded', function () {
+  const text = "Project Manager | Product Owner";
+  const el = document.getElementById('typewriter');
+  let i = 0;
+  function type() {
+    if (el && i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+  type();
+});
+
+// Typewriter effect for details section
+document.addEventListener('DOMContentLoaded', function () {
+  const text = "Tomorrow doesn’t care about your excuses. It will arrive anyway,and it’ll show you the results of what you did—or didn’t—do today.";
+  const el = document.getElementById('details');
+  let i = 0;
+  function type() {
+    if (el && i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+  type();
+});
+
+// stam.js
+window.addEventListener('scroll', function () {
+  const home = document.getElementById('home');
+  if (home) {
+    home.style.backgroundPositionY = -(window.scrollY * 0.3) + 'px';
+  }
+});

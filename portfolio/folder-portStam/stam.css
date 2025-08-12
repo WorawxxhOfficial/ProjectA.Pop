@@ -400,3 +400,109 @@
       0% { opacity: 0; transform: translateY(40px);}
       100% { opacity: 1; transform: translateY(0);}
     }
+
+    /* Parallax effect for hero background */
+#home {
+  background-attachment: fixed;
+}
+
+/* Glassmorphism for hero-info */
+.hero-info {
+  backdrop-filter: blur(8px) saturate(180%);
+  background: rgba(24,31,42,0.55);
+  border: 1.5px solid rgba(99,102,241,0.18);
+  box-shadow: 0 8px 32px rgba(99,102,241,0.18);
+  transition: box-shadow 0.3s;
+}
+.hero-info:hover {
+  box-shadow: 0 16px 48px rgba(99,102,241,0.28);
+}
+
+/* Social icon animation */
+.social a {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.social a:hover {
+  transform: scale(1.18) rotate(-8deg);
+  box-shadow: 0 4px 16px #6366f1a0;
+}
+
+/* Section fade-in animation */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg,#6366f1,#a5b4fc);
+  z-index: 999;
+  transition: width 0.2s;
+}
+
+/* Timeline dot pulse */
+.timeline-dot {
+  animation: pulseDot 1.2s infinite alternate;
+}
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 4px #a5b4fc44; }
+  100% { box-shadow: 0 0 0 12px #a5b4fc22; }
+}
+
+/* Work card hover pop */
+.work-card {
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.work-card:hover {
+  background: #6366f1;
+  color: #fff;
+  transform: scale(1.07) translateY(-8px);
+  box-shadow: 0 12px 32px #6366f1a0;
+}
+.work-card:hover .work-title {
+  color: #fff;
+}
+
+/* Skill bar glow */
+.skill-bar {
+  box-shadow: 0 0 8px #a5b4fc88;
+}
+
+/* Responsive glassmorphism */
+@media (max-width:900px) {
+  .hero-info { backdrop-filter: blur(4px) saturate(140%);}
+}
+
+/* stam.css */
+.work-img:hover, .profile-img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px #6366f1a0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.contact-form button:active {
+  transform: scale(0.96);
+}
+
+/* stam.css */
+.slide-in-left { opacity:0; transform:translateX(-60px); transition:opacity 0.8s, transform 0.8s;}
+.slide-in-right { opacity:0; transform:translateX(60px); transition:opacity 0.8s, transform 0.8s;}
+.slide-in-left.visible, .slide-in-right.visible { opacity:1; transform:translateX(0);}
+
+/* stam.css */
+.contact-form button:active, .social a:active {
+  animation: bounce 0.3s;
+}
+@keyframes bounce {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.12);}
+  100% { transform: scale(1);}
+}
