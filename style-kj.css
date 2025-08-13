@@ -8,12 +8,12 @@ body {
 }
 .navbar {
     background: #fff;
-    border-radius: 15px;
-    margin-top: 20px;
+    border-radius: 0px;
+    margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 95%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1900px;
     transition: all 0.3s ease;
     border-bottom: none;
 }
