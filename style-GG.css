@@ -1,0 +1,585 @@
+/* ฟอนต์เรียบหรู */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #fff;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header หรูหรา */
+header {
+    background: #111;
+    color: #fff;
+    padding: 32px 0 24px 0;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+/* ปุ่มส้ม */
+.button {
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 24px rgba(255,136,0,0.12);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(255,136,0,0.18);
+}
+
+/* การ์ดสินค้า/section */
+.card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+    padding: 32px;
+    margin: 32px auto;
+    max-width: 600px;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 48px rgba(255,136,0,0.18);
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* ข้อความส้ม */
+.highlight {
+    color: #ff8800;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 24px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+}
+
+/* Animation fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.77,0,.175,1), transform 0.8s cubic-bezier(.77,0,.175,1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 1.08rem;
+    padding: 8px 18px;
+    border-radius: 18px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #ff8800 !important;
+    background: rgba(255,136,0,0.08);
+    text-shadow: 0 2px 8px rgba(255,136,0,0.08);
+}
+/* ...existing code... */
+
+/* เพิ่มลูกเล่นให้ไอคอนฟีเจอร์ */
+.feature-icon {
+    font-size: 2.8rem;
+    color: #ff8800;
+    animation: bounceIn 1s;
+    transition: transform 0.3s;
+}
+.feature-card:hover .feature-icon {
+    transform: scale(1.18) rotate(-8deg);
+    color: #ff5500;
+}
+
+/* เพิ่มลูกเล่น testimonial-img */
+.testimonial-img-frame {
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0 4px 24px rgba(255,136,0,0.15);
+    padding: 6px;
+    background: linear-gradient(135deg, #ff8800 0%, #ff5500 100%);
+    animation: pulse 2.2s infinite;
+}
+.testimonial-img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+/* เพิ่มลูกเล่นให้ portfolio-img-frame */
+.portfolio-img-frame {
+    display: inline-block;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(255,136,0,0.13);
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 100%);
+    padding: 6px;
+    animation: fadePop 1.2s;
+}
+.portfolio-img {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 340px;
+    transition: transform 0.3s;
+}
+.portfolio-img-frame:hover .portfolio-img {
+    transform: scale(1.06) rotate(2deg);
+}
+
+/* ปุ่มสีสันสดใส */
+.btn-success, .btn-outline-success {
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 24px rgba(255,136,0,0.12);
+    transition: background 0.2s, transform 0.2s;
+}
+.btn-success:hover, .btn-outline-success:hover {
+    background: linear-gradient(90deg, #ff5500 0%, #ff8800 100%);
+    transform: scale(1.07);
+    color: #fff;
+}
+
+/* เพิ่ม animation ให้ section-title */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    animation: fadePop 1.1s;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 100%);
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-top: 8px;
+    animation: slideIn 1.2s;
+}
+
+/* Keyframes */
+@keyframes bounceIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 24px rgba(255,136,0,0.15); }
+    50% { box-shadow: 0 8px 36px rgba(255,136,0,0.25); }
+}
+@keyframes fadePop {
+    0% { opacity: 0; transform: scale(0.85); }
+    80% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slideIn {
+    0% { width: 0; opacity: 0; }
+    100% { width: 60px; opacity: 1; }
+}
+
+/* ...existing code... */
+.feature-icon {
+    font-size: 2.8rem;
+    color: #ff8800;
+    animation: bounceIn 1s;
+    transition: transform 0.3s;
+}
+.feature-card:hover .feature-icon {
+    transform: scale(1.18) rotate(-8deg);
+    color: #ff5500;
+}
+
+/* เพิ่มลูกเล่น testimonial-img */
+.testimonial-img-frame {
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0 4px 24px rgba(255,136,0,0.15);
+    padding: 6px;
+    background: linear-gradient(135deg, #ff8800 0%, #ff5500 100%);
+    animation: pulse 2.2s infinite;
+}
+.testimonial-img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+/* เพิ่มลูกเล่นให้ portfolio-img-frame */
+.portfolio-img-frame {
+    display: inline-block;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(255,136,0,0.13);
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 80%);
+    padding: 6px;
+    animation: fadePop 1.2s;
+}
+.portfolio-img {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 340px;
+    transition: transform 0.3s;
+}
+.portfolio-img-frame:hover .portfolio-img {
+    transform: scale(1.10) rotate(0deg);
+}
+
+/* ปุ่มสีสันสดใส */
+.btn-success, .btn-outline-success {
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 24px rgba(255,136,0,0.12);
+    transition: background 0.2s, transform 0.2s;
+}
+.btn-success:hover, .btn-outline-success:hover {
+    background: linear-gradient(90deg, #ff5500 0%, #ff8800 100%);
+    transform: scale(1.07);
+    color: #fff;
+}
+
+/* เพิ่ม animation ให้ section-title */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    animation: fadePop 1.1s;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff8800 0%, #ff5500 100%);
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-top: 8px;
+    animation: slideIn 1.2s;
+}
+
+/* Keyframes */
+@keyframes bounceIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 24px rgba(255,136,0,0.15); }
+    50% { box-shadow: 0 8px 36px rgba(255,136,0,0.25); }
+}
+@keyframes fadePop {
+    0% { opacity: 0; transform: scale(0.85); }
+    80% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slideIn {
+    0% { width: 0; opacity: 0; }
+    100% { width: 60px; opacity: 1; }
+}
+/* ...existing code... */
+.testimonial-card {
+    background: linear-gradient(120deg, #fff 70%, #fff7e6 100%);
+    border-radius: 22px;
+    box-shadow: 0 4px 32px rgba(255,136,0,0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+    padding: 28px 22px 22px 22px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1.5px solid #ffe0b3;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 8px 48px rgba(255,136,0,0.18), 0 2px 16px rgba(0,0,0,0.08);
+    border-color: #ff8800;
+    transform: translateY(-3px) scale(1.03);
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #ff8800 0%, #fff0 80%);
+    opacity: 0.13;
+    z-index: 0;
+}
+
+.testimonial-card .testimonial-img-frame {
+    z-index: 1;
+}
+
+.testimonial-card p {
+    font-size: 1.08rem;
+    color: #222;
+    font-weight: 500;
+    margin-bottom: 6px;
+    z-index: 1;
+}
+
+.testimonial-card small {
+    color: #ff8800;
+    font-weight: 600;
+    z-index: 1;
+}
+
+
+/* Responsive ปรับ layout ให้ดูดีบนมือถือ */
+@media (max-width: 767px) {
+    .testimonial-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 22px 12px 18px 12px;
+    }
+}
+
+/* ==========================================
+   ======      Stylish Pop-in Effect    ======
+   =========================================== */
+/* Animation for a stylish pop-in effect on scroll */
+.feature-card.hidden {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+
+/*
+    Revised On-Scroll Animation for feature-card (more dynamic)
+*/
+.feature-card.hidden {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9); /* เริ่มต้นจากตำแหน่งที่ต่ำกว่า, ขนาดเล็กกว่า */
+}
+
+.feature-card.visible {
+    animation: revealFeatureCard 0.8s cubic-bezier(0.23, 1, 0.32, 1.05) forwards; /* ใช้ Keyframe Animation ใหม่ */
+}
+
+/* Keyframe for the reveal animation */
+@keyframes revealFeatureCard {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+        filter: blur(8px); /* เริ่มต้นด้วยความเบลอ */
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-10px) scale(1.02); /* เลื่อนขึ้นไปเกินเล็กน้อยและขยายตัว */
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* กลับมาตำแหน่งปกติและขนาดจริง */
+        filter: blur(0);
+    }
+}
+
+/* --- Hover effect for the columns (no changes from previous for hover) --- */
+.col-12.col-sm-6.col-lg-3 {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.col-12.col-sm-6.col-lg-3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+.col-12.col-sm-6.col-lg-3:hover::before {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.feature-card.text-center {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* เพิ่ม transition เพื่อความนุ่มนวล */
+}
+
+.feature-card.text-center:hover {
+    transform: translateY(-8px); /* ยกการ์ดขึ้นเล็กน้อย */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5); /* เพิ่มเงาที่เข้มและกว้างขึ้น */
+}
+/* เอาลูกกลมบนซ้ายใน hero ออก */
+.hero::before {
+    content: none !important;
+}
+.text-muted.mb-2 {
+    color: #fff !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background: none !important;
+    color: #ff6b00 !important;
+}
+
+/* ==========================================
+   ======      ธีมสีดำ + ส้ม   =================
+   ====== (ถ้าถ้าเปลี่ยนเป็นสีเดิมลมข้างล้างออก) ======
+   =========================================== */
+
+body {
+    background: rgb(0, 0, 0) !important;
+    color: #fff !important;
+}
+
+
+.container,
+.card,
+.feature-card,
+.testimonial-card,
+.hero-and-trusted,
+.hero,
+.footer {
+    background: #000000 !important;
+    color: #fff !important;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ff6b00 !important;
+    text-shadow: none !important;
+}
+
+
+p, span, small, label {
+    color: #ffffff !important;
+}
+
+
+a {
+    color: #ff6b00 !important;
+}
+a:hover {
+    color: #ffa64d !important;
+}
+
+
+button, .btn, .btn-success, .btn-outline-success {
+    background: linear-gradient(90deg, #ff6b00 0%, #ff8533 100%) !important;
+    color: #fff !important;
+    border: none !important;
+}
+button:hover, .btn:hover {
+    background: linear-gradient(90deg, #ff8533 0%, #ff6b00 100%) !important;
+}
+
+
+.feature-icon {
+    background: #000000 !important;
+    color: #ff6b00 !important;
+    box-shadow: 0 0 12px rgba(255, 107, 0, 0.4) !important;
+}
+
+#portfolio.bg-light {
+    background-color: #000000 !important;
+    color: #fff !important;
+}
+
+#contact.bg-light {
+    background-color: #000000 !important;
+    color: #fff !important;
+}
+.testimonial-card small {
+    color: #ffffff !important;
+}
+/* Navbar Styles - Enhanced Hover Effects */
+
+/* Adjusting the main nav links */
+.nav-link {
+    font-weight: 600;
+    color: #222 !important;
+    position: relative;
+    padding: 10px 15px; /* เพิ่มพื้นที่ padding เพื่อให้ดูดีขึ้น */
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1); /* Smooth transition */
+    overflow: hidden;
+    z-index: 1;
+    font-style: normal;
+}
+
+/* Adding a pseudo-element for the hover effect */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6b00; /* สีส้ม */
+    transform: scaleY(0); /* เริ่มต้นด้วย scale 0 */
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(.25,.8,.25,1);
+    z-index: -1;
+    border-radius: 5px;
+}
+
+/* Hover effect on nav-link */
+.nav-link:hover {
+    color: #fff !important; /* เปลี่ยนสีตัวอักษรเป็นสีขาวเมื่อ hover */
+}
+
+.nav-link:hover::before {
+    transform: scaleY(1); /* ขยายขึ้นมาเมื่อ hover */
+    transform-origin: top;
+}
+
+/* Active link style */
+.nav-link.active {
+    color: #fff !important;
+    font-weight: 700;
+}
+
+.nav-link.active::before {
+    transform: scaleY(1); /* Active link จะมี effect นี้ตลอด */
+    background-color: #ff8533; /* ใช้สีส้มอ่อนกว่าเล็กน้อยสำหรับ active state */
+}
+
+
+
+/* ==========================================
+   ======      ธีมสีดำ + ส้ม   =================
+   ==========================================
+   =========================================== */
