@@ -257,3 +257,25 @@ body {
         padding: 24px 10px 18px 10px;
     }
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #ff6b00;
+    border-radius: 50%;
+    background-size: 60% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert(1) brightness(2) sepia(1) hue-rotate(-20deg) saturate(8);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: #ce8600;
+}
