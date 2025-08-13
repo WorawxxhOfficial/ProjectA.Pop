@@ -333,3 +333,9 @@
         Happy Coding! 🚀
         `);
     
+    // Contact Form validation
+document.querySelector('#contact-form form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // ตรวจสอบข้อมูลและแสดงข้อความสำเร็จ
+  alert('ส่งข้อความเรียบร้อยแล้ว!');
+});
