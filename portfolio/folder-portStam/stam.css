@@ -1003,3 +1003,30 @@ footer::before {
     border-radius: 15px;
     transition: transform 0.3s ease;
 }
+
+/* Contact Form */
+#contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#contact-form input,
+#contact-form textarea {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+#contact-form button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#contact-form button:hover {
+  background: #764ba2;
+}
