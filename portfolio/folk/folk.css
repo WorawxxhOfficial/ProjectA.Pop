@@ -1,0 +1,70 @@
+:root{
+  --denim:#3F6E8C;   /* น้ำเงินเดนิม (เสื้อ) */
+  --sage:#7EA18A;    /* เขียวใบไม้ */
+  --sand:#E6D8C3;    /* เบจผนัง */
+  --ink:#1F2A37;     /* ข้อความเข้ม */
+  --bg:#F6F8F9;      /* พื้นออฟไวท์ */
+  --radius:18px; --shadow:0 12px 28px rgba(0,0,0,.08); --max:980px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Sarabun,system-ui,sans-serif;line-height:1.65}
+a{color:var(--denim);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header / Nav */
+.nav{position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px);
+     background:rgba(246,248,249,.7);border-bottom:1px solid #e5e7eb}
+.nav .wrap{max-width:var(--max);margin:auto;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px}
+.brand{font-weight:800;color:var(--denim)}
+.menu a{padding:8px 10px;border-radius:10px}
+.menu a.active,.menu a:hover{background:var(--sand)}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--sand),#fff);border-bottom:1px solid #e5e7eb}
+.hero .wrap{max-width:var(--max);margin:auto;padding:30px 16px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:var(--shadow)}
+.title{margin:0;font-size:2rem;color:var(--denim)}
+.role{margin:.2rem 0;font-weight:700;color:var(--sage)}
+.bio{color:#475569}
+
+/* Sections */
+.section{max-width:var(--max);margin:auto;padding:26px 16px}
+.h2{margin:0 0 12px;color:var(--denim);font-size:1.45rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#f0f5f3;border:1px solid #d9e6de;color:var(--sage);padding:.45rem .8rem;border-radius:999px;font-weight:700}
+
+.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.cover{width:100%;height:180px;object-fit:cover;border-radius:14px;border:4px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.06);background:#eef2f4}
+
+.cta{display:inline-block;padding:.6rem 1rem;border-radius:12px;background:var(--denim);color:#fff;font-weight:800}
+.cta.outline{background:#fff;border:1px solid var(--denim);color:var(--denim)}
+.cta:hover{filter:brightness(.95);text-decoration:none}
+
+.footer{margin-top:28px;background:linear-gradient(90deg,var(--denim),var(--sage));color:#fff;text-align:center;padding:26px 12px}
+
+/* nice anchor offset */
+:target{scroll-margin-top:80px}
+
+#msg input,
+#msg textarea {
+  width: 100%;
+  padding: .7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  margin: .4rem 0;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none; /* ป้องกันการยืดหด textarea */
+  box-sizing: border-box;
+}
+#msg {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#msg button {
+  align-self: flex-start;
+}
