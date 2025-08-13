@@ -257,3 +257,16 @@ body {
         padding: 24px 10px 18px 10px;
     }
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 70% 70%;
+}
+
+.testimonial-card {
+  border-radius: 18px;
+  border: 1.5px solid #ffd6b2;
+  background: #fff;
+  padding: 26px 18px;
+  box-shadow: 0 2px 12px rgba(255, 107, 0, 0.07);
+}
