@@ -1,196 +1,533 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio - Stam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="folder-portStam/stam.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - ศุภกฤต | ฟิตตูด Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="folder-portStam/stam.css">
 </head>
 <body>
-  <div class="scroll-indicator" id="scrollIndicator"></div>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <img src="folder-portStam/profile.jpg" alt="Profile" class="profile-img">
-    <h1>Suphakit Sanwongkham</h1>
-    <div class="social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Particle Container -->
+    <div id="particles"></div>
+
+    <div class="content-overlay">
+        <!-- Header -->
+        <header class="header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> กลับสู่หน้าหลัก
+            </a>
+            <div class="header-content">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>ศุภกฤต</h1>
+                <div class="role typing-animation">Full Stack Developer</div>
+                <p class="description">
+                    นักพัฒนาเว็บแอปพลิเคชันที่มีความหลงใหลในการสร้างสรรค์โซลูชันที่น่าสนใจและมีประสิทธิภาพ 
+                    ด้วยประสบการณ์ในการทำงานกับเทคโนโลยีที่หลากหลายและความสนใจในการเรียนรู้สิ่งใหม่ๆ อยู่เสมอ
+                </p>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">เกี่ยวกับฉัน</h2>
+                <div class="about-grid">
+                    <div class="about-text animate-on-scroll">
+                        <p>
+                            สวัสดีครับ! ผมศุภกฤต เป็น Full Stack Developer ที่มีความหลงใหลในการพัฒนาเว็บแอปพลิเคชัน 
+                            ด้วยประสบการณ์มากกว่า 3 ปีในวงการ IT ผมได้ทำงานกับโปรเจกต์ที่หลากหลาย 
+                            ตั้งแต่ระบบ E-commerce ไปจนถึงแอปพลิเคชันมือถือ
+                        </p>
+                        <p>
+                            ผมเชื่อมั่นในการเรียนรู้และพัฒนาตนเองอย่างต่อเนื่อง เพื่อให้สามารถสร้างสรรค์ผลงาน
+                            ที่ตอบโจทย์ความต้องการของผู้ใช้งานได้อย่างแท้จริง โดยใช้เทคโนโลยีที่ทันสมัย
+                            และแนวทางการพัฒนาที่มีประสิทธิภาพ
+                        </p>
+                        <p>
+                            นอกจากงานพัฒนาแล้ว ผมยังสนใจในการแบ่งปันความรู้และประสบการณ์กับชุมชนนักพัฒนา
+                            ผ่านการเขียนบล็อก การสอน และการมีส่วนร่วมในโครงการ Open Source ต่างๆ
+                        </p>
+                    </div>
+                    <div class="contact-info animate-on-scroll">
+                        <h3 style="margin-bottom: 2rem; color: var(--primary-color); text-align: center;">ข้อมูลติดต่อ</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>เชียงใหม่, ประเทศไทย</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>suphakit@fittoode.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>085-123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/suphakit</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/suphakit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section" style="background: rgba(102, 126, 234, 0.05);">
+            <div class="container">
+                <h2 class="section-title">ประวัติการศึกษา</h2>
+                <div class="timeline animate-on-scroll">
+                    <div class="timeline-item stagger-animation">
+                        <div class="timeline-year">2564 - 2566</div>
+                        <div class="timeline-title">ปริญญาตรี วิทยาการคอมพิวเตร์</div>
+                        <p>มหาวิทยาลัยเชียงใหม่ - เกรดเฉลี่ย 3.67</p>
+                        <p>โปรเจ็กต์จบ: ระบบจัดการคลังสินค้าอัจฉริยะด้วย IoT และ Machine Learning</p>
+                    </div>
+                    <div class="timeline-item stagger-animation">
+                        <div class="timeline-year">2561 - 2563</div>
+                        <div class="timeline-title">มัธยมศึกษาตอนปลาย สายวิทย์-คณิต</div>
+                        <p>โรงเรียนสารสาสน์วิเทศ เชียงใหม่ - เกรดเฉลี่ย 3.89</p>
+                    </div>
+                    <div class="timeline-item stagger-animation">
+                        <div class="timeline-year">2558 - 2560</div>
+                        <div class="timeline-title">มัธยมศึกษาตอนต้น</div>
+                        <p>โรงเรียนสารสาสน์วิเทศ เชียงใหม่</p>
+                    </div>
+                    <div class="timeline-item stagger-animation">
+                        <div class="timeline-year">2552 - 2557</div>
+                        <div class="timeline-title">ประถมศึกษา</div>
+                        <p>โรงเรียนอนุบาลเชียงใหม่</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">ทักษะและความเชี่ยวชาญ</h2>
+                <div class="skills-grid">
+                    <div class="skill-category animate-on-scroll stagger-animation">
+                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>JavaScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>TypeScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Java</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>PHP</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category animate-on-scroll stagger-animation">
+                        <h3><i class="fas fa-laptop-code"></i> Frameworks & Libraries</h3>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>React.js</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Vue.js</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Node.js</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Next.js</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Laravel</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="78"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category animate-on-scroll stagger-animation">
+                        <h3><i class="fas fa-database"></i> Databases & Tools</h3>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>MySQL</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>MongoDB</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>PostgreSQL</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Git</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>Docker</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category animate-on-scroll stagger-animation">
+                        <h3><i class="fas fa-palette"></i> Soft Skills</h3>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>การทำงานเป็นทีม</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="98"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>การแก้ปัญหา</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>การสื่อสار</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>การเรียนรู้ด้วยตนเอง</span>
+                                <span>96%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="96"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-label">
+                                <span>ภาษาอังกฤษ</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" style="background: rgba(102, 126, 234, 0.05);">
+            <div class="container">
+                <h2 class="section-title">ผลงานเด่น</h2>
+                <div class="projects-grid">
+                    <div class="project-card animate-on-scroll stagger-animation">
+                        <div class="project-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">FitToode E-Commerce Platform</h3>
+                            <p class="project-description">
+                                แพลตฟอร์ม E-commerce สำหรับร้านอาหารเสริมและอุปกรณ์ออกกำลังกาย 
+                                พร้อมระบบจัดการสินค้าคลังสินค้า ระบบชำระเงินหลากหลายรูปแบบ 
+                                และระบบวิเคราะห์ยอดขายแบบ Real-time
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll stagger-animation">
+                        <div class="project-image">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Fitness Tracker Mobile App</h3>
+                            <p class="project-description">
+                                แอปพลิเคชันติดตามการออกกำลังกายและสุขภาพ พร้อมระบบวางแผนอาหาร
+                                การติดตามแคลอรี่ และการแจ้งเตือนอัจฉริยะ รองรับการซิงค์ข้อมูลกับ
+                                อุปกรณ์ Wearable ต่างๆ
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Redux</span>
+                                <span class="tech-tag">Chart.js</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll stagger-animation">
+                        <div class="project-image">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI-Powered Nutrition Assistant</h3>
+                            <p class="project-description">
+                                ระบบแนะนำโภชนาการส่วนบุคคลด้วย AI และ Machine Learning 
+                                วิเคราะห์ภาพอาหารด้วย Computer Vision เพื่อคำนวณแคลอรี่
+                                และแนะนำแผนอาหารที่เหมาะสมกับเป้าหมายของผู้ใช้
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card animate-on-scroll stagger-animation">
+                        <div class="project-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Business Analytics Dashboard</h3>
+                            <p class="project-description">
+                                แดชบอร์ดวิเคราะห์ธุรกิจแบบ Real-time สำหรับ SME ในอุตสาหกรรมอาหาร
+                                รองรับการวิเคราะห์ยอดขาย การคาดการณ์แนวโน้ม และการจัดการลูกค้า
+                                พร้อมระบบรายงานที่ปรับแต่งได้
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                ดูรายละเอียด <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Achievements Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">ประสบการณ์และรางวัล</h2>
+                <div class="experience-grid">
+                    <div class="animate-on-scroll">
+                        <h3 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 1.8rem;">ประสบการณ์การทำงาน</h3>
+                        <div class="timeline">
+                            <div class="timeline-item stagger-animation">
+                                <div class="timeline-year">2023 - ปัจจุบัน</div>
+                                <div class="timeline-title">Senior Full Stack Developer - ฟิตตูด Solutions</div>
+                                <p>พัฒนาและดูแลระบบ E-commerce และแอปพลิเคชันสุขภาพ รับผิดชอบทีมพัฒนา 5 คน 
+                                เพิ่มประสิทธิภาพระบบให้เร็วขึ้น 40% และลดค่าใช้จ่าย Server 30%</p>
+                            </div>
+                            <div class="timeline-item stagger-animation">
+                                <div class="timeline-year">2022 - 2023</div>
+                                <div class="timeline-title">Full Stack Developer - TechStart Co.</div>
+                                <p>พัฒนาเว็บแอปพลิเคชันสำหรับ Startup ต่างๆ ใช้เทคโนโลยี React, Node.js, และ MongoDB 
+                                สร้างระบบที่รองรับผู้ใช้งานพร้อมกันได้มากกว่า 10,000 คน</p>
+                            </div>
+                            <div class="timeline-item stagger-animation">
+                                <div class="timeline-year">2021 - 2022</div>
+                                <div class="timeline-title">Junior Developer - Digital Agency CM</div>
+                                <p>พัฒนาเว็บไซต์และแอปพลิเคชันสำหรับลูกค้า เรียนรู้การทำงานกับทีม Agile 
+                                และเทคโนโลยีต่างๆ รวมถึงการจัดการโปรเจกต์และการติดต่อกับลูกค้า</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-on-scroll">
+                        <h3 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 1.8rem;">รางวัลและผลงาน</h3>
+                        <div class="achievements-card">
+                            <div class="achievement-item">
+                                <div class="achievement-header">
+                                    <i class="fas fa-trophy" style="color: #ffd700;"></i>
+                                    <strong>รางวัลที่ 1 - Thailand Startup Hackathon 2023</strong>
+                                </div>
+                                <p style="color: #666; margin-left: 2rem;">โครงการ "FitLife AI" - แอปแนะนำโภชนาการด้วย AI</p>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-header">
+                                    <i class="fas fa-medal" style="color: #c0392b;"></i>
+                                    <strong>Best Innovation Award - DevFest Chiang Mai 2022</strong>
+                                </div>
+                                <p style="color: #666; margin-left: 2rem;">ระบบจัดการคลังสินค้าอัจฉริยะด้วย IoT</p>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-header">
+                                    <i class="fas fa-certificate" style="color: var(--primary-color);"></i>
+                                    <strong>AWS Solutions Architect Associate</strong>
+                                </div>
+                                <p style="color: #666; margin-left: 2rem;">การรับรองความรู้ระบบ Cloud Computing</p>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-header">
+                                    <i class="fas fa-code" style="color: #28a745;"></i>
+                                    <strong>Google Cloud Professional Developer</strong>
+                                </div>
+                                <p style="color: #666; margin-left: 2rem;">ใบรับรองนักพัฒนามืออาชีพจาก Google</p>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-header">
+                                    <i class="fas fa-star" style="color: #f39c12;"></i>
+                                    <strong>GitHub Stars 1,500+</strong>
+                                </div>
+                                <p style="color: #666; margin-left: 2rem;">โปรเจ็กต์ Open Source ที่ได้รับความสนใจจากชุมชน</p>
+                            </div>
+                            <div class="achievement-item" style="border-bottom: none; margin-bottom: 0;">
+                                <div class="achievement-header">
+                                    <i class="fas fa-users" style="color: #6f42c1;"></i>
+                                    <strong>Speaker at Tech Conferences</strong>
+                                </div>
+                                <p style="color: #666; margin-left: 2rem;">วิทยากรในงาน DevCon Thailand และ CMU Tech Talk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="container">
+                    <p style="margin-bottom: 1rem; font-size: 1.1rem;">
+                        © 2024 ศุภกฤต | ฟิตตูด Solutions
+                    </p>
+                    <p style="margin-bottom: 2rem; opacity: 0.8;">
+                        "สร้างสรรค์เทคโนโลยีเพื่อชีวิตที่ดีกว่า"
+                    </p>
+                    <div class="social-links">
+                        <a href="#" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#home" class="active"><span>🏠</span>Home</a></li>
-        <li><a href="#about"><span>👤</span>About</a></li>
-        <li><a href="#education"><span>📄</span>Resume</a></li>
-        <li><a href="#works"><span>🖼️</span>Portfolio</a></li>
-        <li><a href="#skills"><span>🛠️</span>Skills</a></li>
-        <li><a href="#contact"><span>✉️</span>Contact</a></li>
-      </ul>
-    </nav>
-  </aside>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    <!-- Hero Section -->
-    <section id="home">
-      <img src="folder-portStam/Background.jpg" alt="Background" class="hero-bg">
-      <div class="hero-info">
-        <h1 id="NameAni">Suphakit Sanwongkham</h1>
-        <h2 id="typewriter">Project Manager</h2>
-        <p id="details">
-          Tomorrow doesn’t care about your excuses. It will arrive anyway,<br>
-          and it’ll show you the results of what you did—or didn’t—do today.
-        </p>
-      </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about">
-      <div class="about-content">
-        <h2>About Me</h2>
-        <div>
-          สวัสดีค่ะ! ฉันชื่อสแตมป์ เป็นคนที่ชอบค้นหาความรู้ใหม่ๆ ทั้งด้านศิลปะและเทคโนโลยี  
-          มีความสุขกับการวาดภาพ ออกแบบ และทดลองสร้างโปรเจกต์ต่างๆ  
-          นอกจากนั้นยังชอบทำกิจกรรมกับเพื่อนๆ และร่วมงานเป็นทีม  
-          เป้าหมายของฉันคือการนำความคิดสร้างสรรค์มาผสมผสานกับเทคโนโลยีเพื่อสร้างสิ่งดีๆ ให้กับสังคม  
-          <br><br>
-          <span class="font-bold">"ความคิดสร้างสรรค์ + ความตั้งใจ = ผลงานที่ดีที่สุด"</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-      <div class="edu-content">
-        <h2>ประวัติการศึกษา</h2>
-        <div class="timeline">
-          <div class="timeline-item slide-in-left" data-animate>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <b>อนุบาล:</b> โรงเรียนอนุบาลเทศบาลตำบลป่าตัน (2551-2554)
-            </div>
-          </div>
-          <div class="timeline-item slide-in-left" data-animate>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <b>ประถม:</b> โรงเรียนพุทธิโสภณ (2555-2560)
-            </div>
-          </div>
-          <div class="timeline-item slide-in-left" data-animate>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <b>มัธยมต้น:</b> โรงเรียนวัฒโนทัยพายัพ (2561-2563)
-            </div>
-          </div>
-          <div class="timeline-item slide-in-left" data-animate>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <b>มัธยมปลาย:</b> โรงเรียนวัฒโนทัยพายัพ (2564-2566)
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Works/Projects Section -->
-    <section id="works">
-      <div class="works-content">
-        <h2>ผลงานเด่น</h2>
-        <div class="works-list">
-          <div class="work-card" data-animate>
-            <img src="https://i.imgur.com/your-work1.jpg" class="work-img" alt="work1">
-            <div class="work-title">รางวัลชนะเลิศวาดภาพ</div>
-            <div class="work-desc">ประกวดวาดภาพระดับจังหวัด ปี 2565</div>
-          </div>
-          <div class="work-card" data-animate>
-            <img src="https://i.imgur.com/your-work2.jpg" class="work-img" alt="work2">
-            <div class="work-title">โครงงาน IoT</div>
-            <div class="work-desc">สร้างระบบบ้านอัจฉริยะด้วย Arduino</div>
-          </div>
-          <div class="work-card" data-animate>
-            <img src="https://i.imgur.com/your-work3.jpg" class="work-img" alt="work3">
-            <div class="work-title">เว็บไซต์ Portfolio</div>
-            <div class="work-desc">ออกแบบและพัฒนาเว็บไซต์ส่วนตัว</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="skills-content">
-        <h2>ทักษะส่วนตัว</h2>
-        <div>
-          <div class="skill-label">
-            <span>วาดภาพ</span>
-            <span>90%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar" data-skill="90"></div>
-          </div>
-        </div>
-        <div>
-          <div class="skill-label">
-            <span>เขียนโปรแกรม</span>
-            <span>80%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar" data-skill="80"></div>
-          </div>
-        </div>
-        <div>
-          <div class="skill-label">
-            <span>นำเสนอผลงาน</span>
-            <span>85%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar" data-skill="85"></div>
-          </div>
-        </div>
-        <div>
-          <div class="skill-label">
-            <span>ทำงานเป็นทีม</span>
-            <span>95%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar" data-skill="95"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="contact-content">
-        <h2>ติดต่อ</h2>
-        <form id="contactForm" class="contact-form">
-          <label>ชื่อ</label>
-          <input type="text" name="name" required>
-          <label>อีเมล</label>
-          <input type="email" name="email" required>
-          <label>ข้อความ</label>
-          <textarea name="message" required rows="4"></textarea>
-          <button type="submit">ส่งข้อความ</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Popup ขอบคุณ -->
-    <div id="thankPopup" class="hidden">
-      <div class="popup-content">
-        <h3 class="text-2xl font-bold text-indigo-600 mb-4">ขอบคุณสำหรับการติดต่อ!</h3>
-        <p class="mb-6">เราจะติดต่อกลับโดยเร็วที่สุด</p>
-        <button onclick="document.getElementById('thankPopup').classList.add('hidden')"
-          style="padding:10px 24px;background:#6366f1;color:#fff;border:none;border-radius:8px;font-weight:bold;cursor:pointer;">
-          ปิด
-        </button>
-      </div>
-    </div>
-  </div>
-  <script src="https://kit.fontawesome.com/4b7e1e6e8a.js" crossorigin="anonymous"></script>
-  <script src="folder-portStam/stam.js"></script>
-  
-   
+    <script src="folder-portStam/stam.js"></script>
+</body>
+</html>
