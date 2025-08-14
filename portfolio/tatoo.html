@@ -20,7 +20,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <!-- <li><a href="#contact">Contact</a></li> -->
                 </ul>
             </div>
             <button class="hamburger-menu" id="hamburger-menu">
@@ -32,34 +32,35 @@
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="hero-content" contenteditable="false">
-                <h1>Hello, I'm Worawich Yimsabai</h1>
-                <p>A passionate developer creating functional, real-world projects.</p>
-                <a href="#projects" class="cta-button">View My Work</a>
-            </div>
-        </section>
 
-        <section id="about" class="section">
-            <div class="section-content about-content" contenteditable="false">
+
+        <section id="about" class="hero-section">
+            <div class="hero-content">
                 <div class="about-grid">
-                    <div class="profile-photo">
-                        <!-- <img src="https://via.placeholder.com/400x400/6A1B9A/E0B0FF?text=TATOO" -->
-                        <img src="/portfolio/folder-portTatoo/imgs/image3.jpg"
-                            alt="Profile of Worawich Yimsabai">
+                    <div class="profile-container">
+                        <div class="profile-photo">
+                            <img src="folder-portTatoo/imgs/image0.jpg" alt="Profile of Worawich Yimsabai">
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://discord.gg/y8UzsmpGYG" class="social-icon"><i
+                                    class="fab fa-discord"></i></a>
+                            <a href="https://github.com/WorawxxhOfficial" class="social-icon"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://www.facebook.com/Worrawit.Yimsabai" class="social-icon"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/imyourjxmmy_/?hl=en" class="social-icon"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
+
                     <div class="about-text-container">
-                        <h2>About Me</h2>
-                        <p class="about-intro">I'm **Worawich Yimsabai (Tatoo)**, a passionate beginner developer
-                            focused on building a strong programming foundation. I'm skilled in Backend development
-                            (Spring Boot, Ktor) and database management (MySQL, PostgreSQL). My goal is to become a Full
-                            Stack Developer in the future.</p>
-                        <div class="about-box-card">
+                        <h1 class="hero-title">Yo, I'm Tatoo</h1>
+                        <div class="my-journey-box">
                             <h3>My Journey</h3>
                             <p>My educational path has shaped my skills and perspective. I’ve gone through various
-                                schools, both locally and abroad, and you can learn more about this journey in my full
-                                biography.</p>
-                            <a href="/portfolio/folder-portTatoo/biography.html" class="cta-button-small">Read Full Biography</a>
+                                schools, both locally and abroad, and you can learn more about this journey in my
+                                full biography.</p>
+                            <a href="biography.html" class="cta-button-small">More about Me :)</a>
                         </div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@
         </section>
 
         <section id="skills" class="section">
-            <div class="section-content skills-content" contenteditable="false">
+            <div class="section-content skills-content">
                 <div class="skills-header">
                     <h2>My Skills</h2>
                     <p class="tagline">Here are my core competencies, categorized for clarity.</p>
@@ -191,47 +192,149 @@
         </section>
 
         <section id="projects" class="section">
-            <div class="section-content projects-content" contenteditable="false">
+            <div class="section-content projects-content">
                 <h2>Projects</h2>
                 <p class="section-description">A selection of my projects, showcasing my skills and dedication to
                     problem-solving.</p>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <img src="https://via.placeholder.com/400x300/6A1B9A/E0B0FF?text=Project+1" alt="Project 1">
+
+                <div class="project-categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="web">Website</button>
+                    <button class="category-btn" data-category="game">Game Server</button>
+                    <button class="category-btn" data-category="etc">ETC</button>
+                </div>
+
+                <div class="project-grid-container project-grid">
+                    <div class="project-card" data-category="web">
+                        <img src="folder-portTatoo/imgs/ecom.png" alt="E-commerce Website">
                         <div class="project-info">
-                            <h3>Backend E-Commerce Service</h3>
-                            <p>A robust backend for an e-commerce platform built with Spring Boot, handling user
-                                authentication and product management.</p>
-                            <a href="#" class="project-link">View Details</a>
+                            <h3>E-commerce Website</h3>
+                            <p>A full-stack e-commerce platform with a user-friendly interface, payment gateway
+                                integration, and order management system.</p>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="https://via.placeholder.com/400x300/6A1B9A/E0B0FF?text=Project+2" alt="Project 2">
+                    <div class="project-card" data-category="web">
+                        <img src="folder-portTatoo/imgs/hy.png" alt="Hypixel Server Website Fork">
                         <div class="project-info">
-                            <h3>Real-time Chat App</h3>
-                            <p>A real-time chat application using Ktor for the backend, focusing on performance and
-                                seamless communication.</p>
-                            <a href="#" class="project-link">View Details</a>
+                            <h3>Hypixel Server Website (Fork)</h3>
+                            <p>A forked and customized version of the Hypixel server website, featuring new themes and
+                                modified functionalities for a unique community experience.</p>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="https://via.placeholder.com/400x300/6A1B9A/E0B0FF?text=Project+3" alt="Project 3">
+                    <div class="project-card" data-category="web">
+                        <img src="folder-portTatoo/imgs/FR.png" alt="Flood Relief Website">
                         <div class="project-info">
-                            <h3>Personal Blog UI Design</h3>
-                            <p>A clean and minimalist UI design for a personal blog, created with a focus on readability
-                                and responsive design.</p>
-                            <a href="#" class="project-link">View Details</a>
+                            <h3>Flood Relief Website</h3>
+                            <p>A community-driven platform to help victims of floods by connecting them with volunteers
+                                and providing real-time updates on relief efforts.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <img src="folder-portTatoo/imgs/BB.png" alt="Bluebik Website Mockup">
+                        <div class="project-info">
+                            <h3>Bluebik Website Mockup</h3>
+                            <p>A front-end mockup of the Bluebik website, showcasing design skills and modern web
+                                development techniques with a focus on user experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/muthai.png" alt="Mu Origin Private Server">
+                        <div class="project-info">
+                            <h3>Mu Origin Private Server</h3>
+                            <p>A custom private server for the mobile game Mu Origin, with modified features and unique
+                                gameplay content for a new player experience.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/Bdopv.png" alt="Black Desert Online Private Server">
+                        <div class="project-info">
+                            <h3>Black Desert Online Private Server</h3>
+                            <p>A private server for Black Desert Online, featuring custom events, balance changes, and
+                                community-driven content updates.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/CTR.jpg" alt="Talesrunner Private Server (Chubby)">
+                        <div class="project-info">
+                            <h3>Talesrunner Private Server (Chubby)</h3>
+                            <p>A unique private server for the game Talesrunner, featuring custom items, maps, and
+                                events to create a fresh and nostalgic experience.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/TS.png" alt="Talesrunner Star">
+                        <div class="project-info">
+                            <h3>Talesrunner Star</h3>
+                            <p>A separate project based on Talesrunner, with a focus on new game modes and a streamlined
+                                user interface to enhance gameplay.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/fw.png" alt="FlufflyWorld Server">
+                        <div class="project-info">
+                            <h3>FlufflyWorld</h3>
+                            <p>A custom Minecraft server network that integrates massive multiplayer online (MMO)
+                                elements like quests, unique classes, and an in-depth skill system.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/Candy.png" alt="CandyCraft Minecraft Server">
+                        <div class="project-info">
+                            <h3>CandyCraft</h3>
+                            <p>A themed Minecraft server with a focus on creative building and community events, using
+                                custom plugins to create a unique sugary world.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/CCM.png" alt="ChubbyCraft Minecraft Server">
+                        <div class="project-info">
+                            <h3>ChubbyCraft</h3>
+                            <p>A Minecraft server designed for a specific community, featuring custom mini-games and a
+                                strong emphasis on player interaction.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/armory.png" alt="ArmoryCraft Minecraft Server">
+                        <div class="project-info">
+                            <h3>ArmoryCraft</h3>
+                            <p>A Minecraft server that focuses on combat and unique weapons, with a custom-developed
+                                armory system and special abilities.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/bjb.png" alt="BangJaBin Minecraft Server">
+                        <div class="project-info">
+                            <h3>BangJaBin Minecraft Server</h3>
+                            <p>A small-scale Minecraft server built for a specific group, featuring custom plugins and a
+                                unique survival experience.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="game">
+                        <img src="folder-portTatoo/imgs/legacyRealms.png" alt="LegacyRealms Network">
+                        <div class="project-info">
+                            <h3>LegacyRealms Network</h3>
+                            <p>A comprehensive Minecraft server network that includes multiple game modes, a central
+                                hub, and custom backend systems for smooth performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="etc">
+                        <img src="folder-portTatoo/imgs/Ama.png" alt="Amasun Network Cisco Packet Tracer">
+                        <div class="project-info">
+                            <h3>Amasun Network (Cisco Packet Tracer)</h3>
+                            <p>A network topology designed and simulated using Cisco Packet Tracer, demonstrating
+                                knowledge in network configuration, routing protocols, and security principles.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <div class="section-content contact-content" contenteditable="false">
-                <h2>Contact</h2>
-                <p class="section-description">Feel free to get in touch about project opportunities or collaboration.
-                </p>
+        <!-- <section id="contact" class="section">
+            <div class="section-content contact-content">
+                <h2>Contact Me</h2>
+                <p class="section-description">Feel free to reach out for collaborations or opportunities.</p>
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
@@ -239,15 +342,17 @@
                     <button type="submit" class="cta-button">Send Message</button>
                 </form>
             </div>
-        </section>
+        </section> -->
+
     </main>
 
     <footer class="footer">
         <p>&copy; 2025 Worawich Yimsabai. All Rights Reserved.</p>
         <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="https://discord.gg/y8UzsmpGYG" class="social-icon"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/WorawxxhOfficial" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/Worrawit.Yimsabai" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/imyourjxmmy_/?hl=en" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 

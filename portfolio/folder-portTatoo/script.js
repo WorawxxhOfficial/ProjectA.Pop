@@ -1,66 +1,79 @@
-// Functionality for the Hamburger Menu
-const hamburgerMenu = document.getElementById('hamburger-menu');
-const navLinksContainer = document.querySelector('.nav-links-container');
-const navLinks = document.getElementById('navLinks');
+document.addEventListener('DOMContentLoaded', function() {
 
-if (hamburgerMenu) {
+    // Hamburger menu functionality
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navLinksContainer = document.querySelector('.nav-links-container');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
     hamburgerMenu.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
-        hamburgerMenu.classList.toggle('active');
+        hamburgerMenu.classList.toggle('active'); // บรรทัดนี้ทำให้ปุ่มเปลี่ยนเป็นกากบาท
     });
 
-    navLinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
             navLinksContainer.classList.remove('active');
-            hamburgerMenu.classList.remove('active');
-        }
+            hamburgerMenu.classList.remove('active'); // บรรทัดนี้ทำให้ปุ่มกลับมาเป็นสามขีดเมื่อกดลิงก์
+        });
     });
-}
 
-// Functionality for Scroll Reveal Effect
-const sectionContents = document.querySelectorAll('.section-content');
-const skillsContent = document.querySelector('.skills-content');
+    // Scroll reveal effect
+    const sections = document.querySelectorAll('.section-content');
+    const revealOnScroll = () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+            if (sectionTop < screenHeight - 150) {
+                section.classList.add('visible');
+            }
+        });
+    };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check on page load
+
+    // Accordion functionality for skills section
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            const accordionContent = header.nextElementSibling;
+
+            // Close all other accordions
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                if (item !== accordionItem) {
+                    item.querySelector('.accordion-content').classList.remove('active');
+                    item.querySelector('.accordion-header').classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked accordion
+            accordionContent.classList.toggle('active');
+            header.classList.toggle('active');
+        });
     });
-}, {
-    rootMargin: '0px',
-    threshold: 0.2
-});
 
-sectionContents.forEach(content => {
-    observer.observe(content);
-});
+    // Project Category Switching
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-// เพิ่ม skillsContent เข้าไปใน observer
-if (skillsContent) {
-    observer.observe(skillsContent);
-}
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryBtns.forEach(b => b.classList.remove('active'));
 
-// Hero Section Fade-in Effect
-const heroContent = document.querySelector('.hero-content');
-document.addEventListener('DOMContentLoaded', () => {
-    if (heroContent) {
-        setTimeout(() => {
-            heroContent.classList.add('visible');
-        }, 500);
-    }
-});
+            // Add active class to the clicked button
+            btn.classList.add('active');
 
-// Accordion Functionality for Skills Section
-const accordionHeaders = document.querySelectorAll('.accordion-header');
+            const category = btn.dataset.category;
 
-accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const accordionItem = header.parentElement;
-        const accordionContent = accordionItem.querySelector('.accordion-content');
-
-        // Toggle the 'active' class on the header and content
-        header.classList.toggle('active');
-        accordionContent.classList.toggle('active');
+            projectCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block'; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        });
     });
 });
