@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animation Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --accent-color: #22d3ee;
+            --dark-bg: #0a0a0a;
+            --light-bg: #1a1a1a;
+            --text-color: #e2e8f0;
+            --glow-color: #a78bfa;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        nav.scrolled {
+            padding: 10px 50px;
+            background: rgba(10, 10, 10, 0.95);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s ease-in-out infinite;
+            transform-style: preserve-3d;
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+        }
+        @keyframes textGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px var(--primary-color));
+                transform: rotateY(0deg);
+            }
+            50% { 
+                filter: drop-shadow(0 0 30px var(--secondary-color));
+                transform: rotateY(10deg);
+            }
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            transform: translateY(-3px) scale(1.05);
+            text-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
+        }
+        /* Hero Section with 3D Scene */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+        }
+        /* 3D Background Particles */
+        .particles-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-color);
+            animation: particleFloat 20s infinite linear;
+        }
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateZ(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateZ(1000px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        /* 3D Geometric Shapes */
+        .geometric-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+        .geometric-shape {
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate3d 20s infinite linear;
+        }
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .cube-face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .cube-face:nth-child(1) { transform: translateZ(50px); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(50px); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(50px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
+        @keyframes rotate3d {
+            0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        .hero-3d-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(30px);
+            padding: 80px;
+            border-radius: 30px;
+            transform-style: preserve-3d;
+            transform: perspective(1500px) rotateX(0deg) rotateY(0deg);
+            transition: transform 0.6s ease;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                inset 0 0 100px rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-3d-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+            background-size: 200% 200%;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.5);
+        }
+        /* Morphing Shapes Background */
+        .morphing-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .morph-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 15s ease-in-out infinite;
+            filter: blur(40px);
+        }
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: rotate(0deg) scale(1);
+            }
+            25% {
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+                transform: rotate(90deg) scale(1.2);
+            }
+            50% {
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+                transform: rotate(180deg) scale(0.8);
+            }
+            75% {
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+                transform: rotate(270deg) scale(1.1);
+            }
+        }
+        /* About Section with 3D Effects */
+        .about {
+            padding: 150px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .section-title {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform-style: preserve-3d;
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(5deg); }
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+            animation: pulseLine 2s ease-in-out infinite;
+        }
+        @keyframes pulseLine {
+            0%, 100% { width: 150px; opacity: 1; }
+            50% { width: 200px; opacity: 0.7; }
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        .about-3d-showcase {
+            position: relative;
+            height: 500px;
+            perspective: 1500px;
+        }
+        .rotating-cube-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+            animation: containerRotate 20s infinite linear;
+        }
+        @keyframes containerRotate {
+            0% { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg); }
+        }
+        .rotating-cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .cube-face-large {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+        .cube-face-large:nth-child(1) { 
+            transform: translateZ(100px); 
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(34, 211, 238, 0.3));
+        }
+        .cube-face-large:nth-child(2) { 
+            transform: rotateY(90deg) translateZ(100px); 
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(99, 102, 241, 0.3));
+        }
+        .cube-face-large:nth-child(3) { 
+            transform: rotateY(180deg) translateZ(100px); 
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(236, 72, 153, 0.3));
+        }
+        .cube-face-large:nth-child(4) { 
+            transform: rotateY(-90deg) translateZ(100px); 
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+        }
+        .cube-face-large:nth-child(5) { 
+            transform: rotateX(90deg) translateZ(100px); 
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(34, 211, 238, 0.3));
+        }
+        .cube-face-large:nth-child(6) { 
+            transform: rotateX(-90deg) translateZ(100px); 
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(99, 102, 241, 0.3));
+        }
+        /* Skills Section with 3D Cards */
+        .skills {
+            padding: 150px 50px;
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .skill-3d-card {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-3d-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        .skill-3d-card:hover::before {
+            transform: translateX(100%);
+        }
+        .skill-3d-card:hover {
+            transform: perspective(1000px) rotateX(-15deg) translateY(-30px) rotateZ(5deg);
+            box-shadow: 
+                0 30px 60px rgba(99, 102, 241, 0.4),
+                0 0 100px rgba(99, 102, 241, 0.2);
+            background: rgba(26, 26, 26, 0.95);
+        }
+        .skill-icon-3d {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            transform-style: preserve-3d;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            50% { transform: translateY(-10px) rotateY(180deg); }
+        }
+        .skill-3d-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--text-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-3d-card p {
+            opacity: 0.8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        /* Simplified Gallery Section */
+        .gallery-3d {
+            padding: 150px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+        .gallery-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        .gallery-item p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        /* Contact Info Section */
+        .contact-info {
+            padding: 150px 50px;
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite reverse;
+        }
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        .contact-card {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.6s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+        .contact-card:hover {
+            transform: perspective(1000px) rotateX(-10deg) translateY(-20px);
+            box-shadow: 0 30px 60px rgba(236, 72, 153, 0.3);
+        }
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        .contact-card p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        .contact-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .contact-card a:hover {
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px var(--secondary-color);
+        }
+        /* Interactive 3D Sphere */
+        .sphere-container {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+            z-index: 100;
+        }
+        .sphere {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: sphereRotate 20s infinite linear;
+        }
+        @keyframes sphereRotate {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        .sphere-point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+        /* Project Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--light-bg);
+            padding: 60px;
+            border-radius: 30px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover {
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+        .modal h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        .modal-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .tech-tag {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .modal-links {
+            display: flex;
+            gap: 20px;
+        }
+        .modal-link {
+            padding: 15px 30px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .modal-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+        }
+        /* Footer */
+        footer {
+            padding: 80px 50px;
+            text-align: center;
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%236366f1" opacity="0.1"></path></svg>') repeat-x;
+            animation: wave 10s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1200px; }
+        }
+        .social-links-3d {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .social-links-3d a {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            transition: all 0.4s ease;
+            display: inline-block;
+            transform-style: preserve-3d;
+        }
+        .social-links-3d a:hover {
+            transform: translateY(-10px) rotateY(360deg) scale(1.2);
+            color: var(--primary-color);
+            text-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .hero-3d-card {
+                padding: 50px 30px;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .sphere-container {
+                display: none;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Loading Animation */
+        .loader-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loader-3d.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-3d-content {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: loaderRotate 2s infinite linear;
+        }
+        @keyframes loaderRotate {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        .loader-3d-face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: 2px solid var(--text-color);
+            opacity: 0.8;
+        }
+        .loader-3d-face:nth-child(1) { transform: translateZ(50px); }
+        .loader-3d-face:nth-child(2) { transform: rotateY(90deg) translateZ(50px); }
+        .loader-3d-face:nth-child(3) { transform: rotateY(180deg) translateZ(50px); }
+        .loader-3d-face:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); }
+        .loader-3d-face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
+        .loader-3d-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1001;
+        }
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        /* Glitch Effect */
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 
+                    2px 2px 0 var(--secondary-color),
+                    -2px -2px 0 var(--accent-color);
+            }
+            25% {
+                text-shadow: 
+                    -2px 2px 0 var(--secondary-color),
+                    2px -2px 0 var(--accent-color);
+            }
+            50% {
+                text-shadow: 
+                    2px -2px 0 var(--secondary-color),
+                    -2px 2px 0 var(--accent-color);
+            }
+            75% {
+                text-shadow: 
+                    -2px -2px 0 var(--secondary-color),
+                    2px 2px 0 var(--accent-color);
+            }
+        }
+        .glitch-text {
+            animation: glitch 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader-3d" id="loader">
+        <div class="loader-3d-content">
+            <div class="loader-3d-face"></div>
+            <div class="loader-3d-face"></div>
+            <div class="loader-3d-face"></div>
+            <div class="loader-3d-face"></div>
+            <div class="loader-3d-face"></div>
+            <div class="loader-3d-face"></div>
+        </div>
+    </div>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">My Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">เกี่ยวกับ</a></li>
+                <li><a href="#skills">ทักษะ</a></li>
+                <li><a href="#gallery">ผลงาน</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="particles-3d" id="particles"></div>
+        <div class="morphing-shapes">
+            <div class="morph-shape" style="top: 10%; left: 10%;"></div>
+            <div class="morph-shape" style="top: 60%; right: 10%; animation-delay: -5s;"></div>
+            <div class="morph-shape" style="bottom: 10%; left: 50%; animation-delay: -10s;"></div>
+        </div>
+        <div class="geometric-container">
+            <div class="geometric-shape" style="top: 20%; left: 20%;">
+                <div class="cube">
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                </div>
+            </div>
+            <div class="geometric-shape" style="top: 60%; right: 20%; animation-delay: -10s;">
+                <div class="cube">
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-3d-card" id="heroCard">
+                <h1 class="glitch-text">Portfolio</h1>
+                <p>ยินดีต้อนรับสู่ Portfolio ของผม</p>
+                <a href="#about" class="cta-button">เริ่มสำรวจ</a>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">เกี่ยวกับฉัน</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>สวัสดีครับ ผมเป็น Web Developer ที่เชี่ยวชาญในการสร้างสรรค์เว็บไซต์ด้วย HTML, CSS และ JavaScript ผมมุ่งมั่นที่จะพัฒนาเว็บไซต์ที่ไม่เพียงแต่สวยงาม แต่ยังมอบประสบการณ์ที่ดีแก่ผู้ใช้งาน ด้วยการเรียนรู้และปรับใช้เทคโนโลยีใหม่ๆ อย่างต่อเนื่อง เพื่อสร้างผลงานที่โดดเด่นและมีประสิทธิภาพ</p>
+            </div>
+            <div class="about-3d-showcase">
+                <div class="rotating-cube-container">
+                    <div class="rotating-cube">
+                        <div class="cube-face-large"><i class="fas fa-code"></i></div>
+                        <div class="cube-face-large"><i class="fas fa-palette"></i></div>
+                        <div class="cube-face-large"><i class="fas fa-cube"></i></div>
+                        <div class="cube-face-large"><i class="fas fa-rocket"></i></div>
+                        <div class="cube-face-large"><i class="fas fa-magic"></i></div>
+                        <div class="cube-face-large"><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="section-title">ทักษะของฉัน</h2>
+        <div class="skills-grid">
+            <div class="skill-3d-card">
+                <i class="fas fa-code skill-icon-3d"></i>
+                <h3>Frontend Development</h3>
+                <p>HTML5, CSS3, JavaScript, React, Vue.js, 3D Transforms</p>
+            </div>
+            <div class="skill-3d-card">
+                <i class="fas fa-paint-brush skill-icon-3d"></i>
+                <h3>UI/UX Design</h3>
+                <p>Figma, Adobe XD, Responsive Design, Animation Design</p>
+            </div>
+            <div class="skill-3d-card">
+                <i class="fas fa-cube skill-icon-3d"></i>
+                <h3>3D Animation</h3>
+                <p>CSS 3D Transforms, Three.js, WebGL, GSAP</p>
+            </div>
+            <div class="skill-3d-card">
+                <i class="fas fa-rocket skill-icon-3d"></i>
+                <h3>Performance</h3>
+                <p>Optimization, Web Vitals, Lazy Loading, Caching</p>
+            </div>
+        </div>
+    </section>
+    <!-- Simplified Gallery Section -->
+    <section class="gallery-3d" id="gallery">
+        <h2 class="section-title">ผลงานของฉัน</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openProjectModal(1)">
+                <img src="GG img/P1.jpg" alt="Project 1">
+                <div class="gallery-item-overlay">
+                    <h3>หุ่นยนต์ microbit</h3>
+                    <p>เป็นงาน openhouse ของโรงเรียน</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openProjectModal(2)">
+                <img src="GG img/P2.png" alt="Project 2">
+                <div class="gallery-item-overlay">
+                    <h3>Mobile App Design</h3>
+                    <p>แอปตารางเรียนให้ครูกับนักเรียน</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openProjectModal(3)">
+                <img src="GG img/P3.jpg" alt="Project 3">
+                <div class="gallery-item-overlay">
+                    <h3>เกียรติบัตร เกมสร้างสรรค์</h3>
+                    <p>เข้าร่วมการแข่งขันศิลปหัตกรรมเกมสร้างสรรค์</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Info Section -->
+    <section class="contact-info" id="contact">
+        <h2 class="section-title">ติดต่อฉัน</h2>
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3>อีเมล</h3>
+                    <p><a href="mailto:your.email@example.com">krittayot.10516@gmaiil.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <h3>โทรศัพท์</h3>
+                    <p><a href="tel:+66123456789">+66 0951341915</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <h3>ที่อยู่</h3>
+                    <p>อำเภอเมือง จังหวัดเชียงใหม่<br>ประเทศไทย</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-github contact-icon"></i>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/LooKInWzA" target="_blank">LooKInWzA</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-discord contact-icon"></i>
+                    <h3>Discord</h3>
+                    <p><a href="#" target="_blank">fr0nt1er_</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Interactive 3D Sphere -->
+    <div class="sphere-container">
+        <div class="sphere" id="sphere"></div>
+    </div>
+    <!-- Project Detail Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeProjectModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-waves"></div>
+        <div class="social-links-3d">
+            <a href="https://www.facebook.com/kvty.chy.k.w.kalya"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/kritt4y0t_t/"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/LooKInWzA"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 3D Portfolio. All rights reserved.</p>
+    </footer>
+    <script>
+        // Project Data
+        const projects = {
+            1: {
+                title: "หุ่นยนต์ microbit",
+                image: "GG img/P1.jpg",
+                description: "เป็นงาน openhouse ของโรงเรียนที่ใช้ microbit ในการสร้างหุ่นยนต์ที่สามารถทำงานได้หลากหลาย",
+                tech: ["microbit", "Python", "JavaScript", "HTML5"],
+                links: [
+                    
+                ]
+            },
+            2: {
+                title: "Mobile App Design",
+                image: "GG img/P2.png",
+                description: "แอปตารางเรียนให้ครูกับนักเรียนที่ออกแบบมาเพื่อให้ใช้งานง่ายและสวยงามและมีการอัปเดตข้อมูลแบบเรียลไทม์",
+                tech: ["Figma", "Adobe XD", "React Native", "Firebase"],
+                links: [
+                    { text: "ดู Prototype", url: "P2-1.jpg" }
+                ]
+            },
+            3: {
+                title: "เกียรติบัตร เกมสร้างสรรค์",
+                image: "GG img/P3.jpg",
+                description: "เข้าร่วมการแข่งขันศิลปหัตกรรมเกมสร้างสรรค์ที่มีการออกแบบกราฟิกและการเล่นเกมที่น่าสนใจในเวลาที่จำกัด",
+                tech: ["RPG Maker", "Unity", "C#", "Game Design"],
+                links: [
+                   
+                ]
+            },
+            4: {
+                title: "Dashboard Design",
+                image: "https://picsum.photos/seed/project4detail/800/400.jpg",
+                description: "แดชบอร์ดสำหรับวิเคราะห์ข้อมูลที่มีการแสดงผลแบบ real-time และ interactive charts ที่ช่วยให้การตัดสินใจง่ายขึ้น",
+                tech: ["Vue.js", "D3.js", "Chart.js", "WebSocket"],
+                links: [
+                    { text: "ดู Demo", url: "#" },
+                    { text: "ดู Code", url: "#" }
+                ]
+            },
+            5: {
+                title: "Game Website",
+                image: "https://picsum.photos/seed/project5detail/800/400.jpg",
+                description: "เว็บไซต์เกมส์ออนไลน์ที่มีกราฟิกสวยงามและ gameplay ที่น่าสนุก รองรับการเล่นแบบ multiplayer",
+                tech: ["Unity", "WebGL", "Socket.io", "Node.js"],
+                links: [
+                    { text: "เล่นเกม", url: "#" },
+                    { text: "ดู Code", url: "#" }
+                ]
+            },
+            6: {
+                title: "Corporate Website",
+                image: "https://picsum.photos/seed/project6detail/800/400.jpg",
+                description: "เว็บไซต์องค์กรที่ออกแบบมาเพื่อสร้างภาพลักษณ์ที่น่าเชื่อถือและให้ข้อมูลที่ครบถ้วนแก่ลูกค้า",
+                tech: ["WordPress", "PHP", "MySQL", "Bootstrap"],
+                links: [
+                    { text: "ดู Website", url: "#" },
+                    { text: "ดู Case Study", url: "#" }
+                ]
+            }
+        };
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            // Scroll Progress
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // 3D Card Mouse Effect
+        const heroCard = document.getElementById('heroCard');
+        heroCard.addEventListener('mousemove', (e) => {
+            const rect = heroCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            heroCard.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        heroCard.addEventListener('mouseleave', () => {
+            heroCard.style.transform = 'perspective(1500px) rotateX(0deg) rotateY(0deg)';
+        });
+        // Generate Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+        // Generate 3D Sphere
+        function createSphere() {
+            const sphere = document.getElementById('sphere');
+            const pointCount = 100;
+            
+            for (let i = 0; i < pointCount; i++) {
+                const point = document.createElement('div');
+                point.className = 'sphere-point';
+                
+                const phi = Math.acos(-1 + (2 * i) / pointCount);
+                const theta = Math.sqrt(pointCount * Math.PI) * phi;
+                
+                const x = 100 * Math.cos(theta) * Math.sin(phi);
+                const y = 100 * Math.sin(theta) * Math.sin(phi);
+                const z = 100 * Math.cos(phi);
+                
+                point.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+                sphere.appendChild(point);
+            }
+        }
+        createSphere();
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('modalContent');
+            const project = projects[projectId];
+            
+            modalContent.innerHTML = `
+                <h2>${project.title}</h2>
+                <img src="${project.image}" alt="${project.title}" class="modal-image">
+                <p class="modal-description">${project.description}</p>
+                <div class="modal-tech">
+                    ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+                <div class="modal-links">
+                    ${project.links.map(link => `<a href="${link.url}" class="modal-link" target="_blank">${link.text}</a>`).join('')}
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeProjectModal();
+            }
+        }
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'all 0.8s ease';
+            observer.observe(section);
+        });
+        // Skill Cards 3D Effect
+        const skillCards = document.querySelectorAll('.skill-3d-card');
+        
+        skillCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) translateY(-30px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            });
+        });
+        // Contact Cards 3D Effect
+        const contactCards = document.querySelectorAll('.contact-card');
+        
+        contactCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                
+                card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) translateY(-20px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            });
+        });
+        // Parallax Effect for Geometric Shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const geometricShapes = document.querySelectorAll('.geometric-shape');
+            const morphShapes = document.querySelectorAll('.morph-shape');
+            
+            geometricShapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.2);
+                shape.style.transform = `translateY(${scrolled * speed}px) rotate3d(1, 1, 1, ${scrolled * 0.1}deg)`;
+            });
+            
+            morphShapes.forEach((shape, index) => {
+                const speed = 0.3 + (index * 0.1);
+                shape.style.transform = `translateY(${scrolled * speed}px) scale(${1 + scrolled * 0.0005})`;
+            });
+        });
+        // Typing Effect for Hero Title
+        const heroTitle = document.querySelector('.hero h1');
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        let index = 0;
+        function typeWriter() {
+            if (index < text.length) {
+                heroTitle.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        setTimeout(typeWriter, 2000);
+        // Glitch Effect on Hover
+        heroTitle.addEventListener('mouseenter', () => {
+            heroTitle.classList.add('glitch-text');
+        });
+        heroTitle.addEventListener('mouseleave', () => {
+            heroTitle.classList.remove('glitch-text');
+        });
+        // Dynamic Background Color Change on Scroll
+        let hue = 0;
+        window.addEventListener('scroll', () => {
+            hue = (hue + 0.5) % 360;
+            document.documentElement.style.setProperty('--primary-color', `hsl(${hue}, 70%, 60%)`);
+        });
+
+
+        
+    </script>
+</body>
+</html>
