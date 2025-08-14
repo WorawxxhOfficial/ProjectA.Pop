@@ -153,27 +153,27 @@
             });
         });
 
-        // Achievement items hover effect
-        document.querySelectorAll('.achievement-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'scale(1.2) rotate(10deg)';
-                }
-                this.style.background = 'rgba(102, 126, 234, 0.05)';
-                this.style.borderRadius = '15px';
-                this.style.padding = '1rem 1rem 1rem 2rem';
-            });
+        // // Achievement items hover effect
+        // document.querySelectorAll('.achievement-item').forEach(item => {
+        //     item.addEventListener('mouseenter', function() {
+        //         const icon = this.querySelector('i');
+        //         if (icon) {
+        //             icon.style.transform = 'scale(1.2) rotate(10deg)';
+        //         }
+        //         this.style.background = 'rgba(102, 126, 234, 0.05)';
+        //         this.style.borderRadius = '15px';
+        //         this.style.padding = '1rem 1rem 1rem 2rem';
+        //     });
             
-            item.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'scale(1) rotate(0deg)';
-                }
-                this.style.background = 'transparent';
-                this.style.padding = '0 0 1.5rem 0';
-            });
-        });
+        //     item.addEventListener('mouseleave', function() {
+        //         const icon = this.querySelector('i');
+        //         if (icon) {
+        //             icon.style.transform = 'scale(1) rotate(0deg)';
+        //         }
+        //         this.style.background = 'transparent';
+        //         this.style.padding = '0 0 1.5rem 0';
+        //     });
+        // });
 
         // Smooth scrolling for all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -338,4 +338,58 @@ document.querySelector('#contact-form form').addEventListener('submit', function
   e.preventDefault();
   // ตรวจสอบข้อมูลและแสดงข้อความสำเร็จ
   alert('ส่งข้อความเรียบร้อยแล้ว!');
+});
+
+// Experience carousel logic
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = Array.from(document.querySelectorAll('.exp-card'));
+  let current = 0;
+
+  function updateCarousel() {
+    cards.forEach((card, idx) => {
+      card.classList.remove('active', 'prev', 'next', 'before', 'after');
+      if (idx === current) {
+        card.classList.add('active');
+      } else if (idx === current - 1) {
+        card.classList.add('prev');
+      } else if (idx === current + 1) {
+        card.classList.add('next');
+      } else if (idx < current - 1) {
+        card.classList.add('before');
+      } else if (idx > current + 1) {
+        card.classList.add('after');
+      }
+    });
+  }
+
+  updateCarousel();
+
+  document.getElementById('exp-prev').addEventListener('click', function() {
+    current = (current - 1 + cards.length) % cards.length;
+    updateCarousel();
+  });
+
+  document.getElementById('exp-next').addEventListener('click', function() {
+    current = (current + 1) % cards.length;
+    updateCarousel();
+  });
+
+  // Optional: swipe support for mobile
+  let startX = null;
+  document.getElementById('exp-carousel').addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+  });
+  document.getElementById('exp-carousel').addEventListener('touchend', function(e) {
+    if (startX !== null) {
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) {
+        current = (current - 1 + cards.length) % cards.length;
+        updateCarousel();
+      } else if (startX - endX > 50) {
+        current = (current + 1) % cards.length;
+        updateCarousel();
+      }
+      startX = null;
+    }
+  });
 });
