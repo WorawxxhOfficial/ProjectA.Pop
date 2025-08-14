@@ -4,76 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praew</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Praew Portfolio</title>
+    <link rel="stylesheet" href="/portfolio/floder-portPraew/praew.css">
 </head>
 
 <body>
+
+    
     <!-- Navigation bar -->
-    <header>
+     <!-- Header -->
+<header class="top-navbar">
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#projects">Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#discovery">Discovery Call</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-text">
+      <p class="hero-subtitle">EXECUTIVE-LEVEL VIRTUAL SUPPORT FOR LEADERS WHO</p>
+      <h1 class="hero-title">PRAEW PIYAPAT</h1>
+      <p class="hero-desc">Your operations, schedule, and communication, managed seamlessly.</p>
+      <div class="hero-contact">
+        <p>📞 0997316490</p>
+        <p>📧 piyapat_mai@cmu.ac.th</p>
+      </div>
+      <a href="#contact" class="hero-btn">Book Your Discovery Call</a>
+    </div>
+
+    <div class="hero-photo">
+      <img src="/img/praew-profile.jpg" alt="Piyapat">
+    </div>
+  </div>
+</section>
+
+
+    <!-- <header>
         <nav>
-            <ul>
+            <ul class="navbar">
                 <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">การศึกษา</a></li>
+                <li><a href="#skills">Skill</a></li>
+                <li><a href="#projects">ผลงานเด่น</a></li>
+                <li><a href="#experience">ประสบการณ์</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
 
-    <!-- Home -->
-    <section id="home">
-        <h1>Hi, I'm Praew</h1>
-        <p>Front-End Developer | Web Design | UI/UX</p>
-        <a href="#contact" class="cta-button">Get In Touch</a>
-    </section>
-
-    <!-- About Me -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-        </ul>
-
-    <!-- Projects -->
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-container">
-            <div class="project-card">
-                <img src="#" alt="Project Image">
-                <h3>Project Title</h3>
-                <p>Description</p>
-                <a href="https://github.com/praewyaphat" target="_blank" class="btn">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form action="submit_form.php" method="POST">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-    </footer>
+    
 </body>
 
 </html>
