@@ -92,12 +92,11 @@ footer {
     transition: color 0.2s, background 0.2s;
 }
 
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-    color: #ff8800 !important;
-    background: rgba(255,136,0,0.08);
-    text-shadow: 0 2px 8px rgba(255,136,0,0.08);
+.nav-link.active,
+.nav-link:hover {
+    color: #000000 !important; /* เปลี่ยนจากสีส้มเป็นสีดำ */
+    font-weight: 600;
+    font-style: normal;
 }
 /* ...existing code... */
 
@@ -453,13 +452,25 @@ footer {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
     background: none !important;
-    color: #ff6b00 !important;
+    color: #000000 !important;
+    
 }
+
 
 /* ==========================================
    ======      ธีมสีดำ + ส้ม   =================
    ====== (ถ้าถ้าเปลี่ยนเป็นสีเดิมลมข้างล้างออก) ======
    =========================================== */
+
+.container{
+    background-color: #000000;
+    /*แล้วไปแก้ตรง index.html ให้เป็น class="container bg-light"*/
+}
+.py-5 {
+    background-color: #000000 !important;
+    color: #fff !important;
+}
+
 
 body {
     background: rgb(0, 0, 0) !important;
@@ -499,13 +510,24 @@ a:hover {
 
 
 button, .btn, .btn-success, .btn-outline-success {
-    background: linear-gradient(90deg, #ff6b00 0%, #ff8533 100%) !important;
+    background: linear-gradient(90deg, #00000000 0%, #ffffff00 100%) !important;
     color: #fff !important;
     border: none !important;
 }
 button:hover, .btn:hover {
+    background: linear-gradient(90deg, #ff853300 0%, #ff6a0000 100%) !important;
+}
+
+.carousel-control-prev button, .btn, .btn-success, .btn-outline-success {
+    background: linear-gradient(90deg, #ff6b00 0%, #ff8533 100%) !important;
+    color: #fff !important;
+    border: none !important;
+}
+.carousel-control-prev button:hover, .btn:hover {
     background: linear-gradient(90deg, #ff8533 0%, #ff6b00 100%) !important;
 }
+
+
 
 
 .feature-icon {
