@@ -8,290 +8,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-    body {
-    background: linear-gradient(120deg, #fff4e6 0%, #fff9f3 100%);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #222;
-    min-height: 100vh;
-    font-weight: 400;
-    font-style: normal;
-}
-.navbar {
-    background: #fff;
-    border-radius: 0px;
-    margin-top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1900px;
-    transition: all 0.3s ease;
-    border-bottom: none;
-}
-.navbar .container {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.navbar-brand {
-    width: 120px;
-    color: #fff!important;
-    letter-spacing: 1px;
-    font-size: 1.6rem;
-    font-style: normal;
-}
-.nav-link.active,
-.nav-link:hover {
-    color: #ff6b00 !important;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.hero-and-trusted {
-    background: linear-gradient(120deg, #ffe8d6 0%, #fff9f3 100%);
-}
-.hero {
-    padding: 70px 0 40px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: "";
-    position: absolute;
-    top: -80px;
-    left: -80px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, #ffd6b2 0%, #ffe8d6 80%);
-    opacity: 0.4;
-    z-index: 0;
-    border-radius: 50%;
-}
-.hero-title {
-    font-size: 2.7rem;
-    font-weight: 700;
-    color: #ff6b00;
-    letter-spacing: 1px;
-    z-index: 1;
-    position: relative;
-    text-shadow: 0 2px 12px rgba(255, 165, 0, 0.2);
-    font-style: normal;
-}
-.hero-desc {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 32px;
-    z-index: 1;
-    position: relative;
-    font-weight: 400;
-}
-.hero-img {
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    margin-top: -80px;
-    z-index: 1;
-}
-.section-title {
-    color: #2c2c2e;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    font-size: 2rem;
-    font-style: normal;
-}
-.trusted-section {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 5px 20px 20px;
-}
-.trusted-section p {
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #2c2c2e;
-}
-.logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-.logos img {
-    height: 75px;
-    object-fit: contain;
-}
-@media (max-width: 600px) {
-    .logos {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-    }
-    .logos img {
-        height: 40px;
-        margin: 8px;
-    }
-}
-.feature-card {
-    border-radius: 22px;
-    border: 1.5px solid #ffd6b2;
-    box-shadow: 0 2px 16px rgba(255, 107, 0, 0.09);
-    background: #fff;
-    padding: 36px 22px 28px 22px;
-    margin-bottom: 28px;
-    transition: box-shadow .2s, transform .2s;
-    position: relative;
-    overflow: hidden;
-    font-weight: 400;
-    font-style: normal;
-}
-.feature-card:hover {
-    box-shadow: 0 8px 32px rgba(255, 107, 0, 0.16);
-    transform: translateY(-4px) scale(1.03);
-}
-.feature-icon {
-    font-size: 2.7rem;
-    color: #ff6b00;
-    margin-bottom: 14px;
-    background: #fff8e6;
-    border-radius: 50%;
-    padding: 16px;
-    box-shadow: 0 2px 8px rgba(191, 108, 0, 0.2);
-    display: inline-block;
-}
-.feature-card h5 {
-    font-weight: 700;
-    margin-bottom: 12px;
-    font-style: normal;
-}
-.feature-card p {
-    font-weight: 400;
-    font-style: normal;
-}
-.portfolio-img-frame {
-    background: linear-gradient(135deg, #ff6b00 60%, #ffd6b2 100%);
-    padding: 8px;
-    border-radius: 24px 48px 24px 48px;
-    display: inline-block;
-    margin-bottom: 18px;
-    box-shadow: 0 4px 18px rgba(255, 107, 0, 0.2);
-}
-.portfolio-img {
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 18px 40px 18px 40px;
-    border: 4px solid #fff;
-    display: block;
-}
-.testimonial-card {
-    border-radius: 18px;
-    border: 1.5px solid #ffd6b2;
-    background: #fff;
-    padding: 26px 18px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 12px rgba(255, 107, 0, 0.07);
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    font-weight: 400;
-    font-style: italic;
-}
-.testimonial-card p {
-    margin-bottom: 0.25rem;
-}
-.testimonial-card small {
-    font-weight: 600;
-    color: #888;
-    font-style: normal;
-}
-.testimonial-img-frame {
-    background: linear-gradient(135deg, #ff6b00 60%, #ffd6b2 100%);
-    padding: 3px;
-    border-radius: 50%;
-    display: inline-block;
-}
-.testimonial-img {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
-    display: block;
-}
-.footer {
-    background: linear-gradient(90deg, #ff6b00 80%, #ce8600 100%);
-    color: #fff;
-    padding: 28px 0 12px 0;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 1.08em;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    font-style: normal;
-}
-.form-control:focus,
-.btn-success:focus {
-    box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.2);
-    border-color: #ff6b00;
-}
-.btn-success {
-    background: linear-gradient(90deg, #ff6b00 60%, #ff8533 100%);
-    border: none;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.2);
-    transition: background .2s;
-    font-style: normal;
-    font-size: 1rem;
-    padding: 7px 18px;
-}
-.btn-success:hover {
-    background: linear-gradient(90deg, #ff8533 80%, #ff6b00 100%);
-}
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    .hero-img {
-        max-width: 70%;
-        margin-top: -30px;
-    }
-    .section-title {
-        font-size: 1.3rem;
-    }
-    .feature-card {
-        padding: 24px 10px 18px 10px;
-    }
-}
-</style>
+    <link rel="stylesheet" href="style-kj.css">
+    <link rel="stylesheet" href="style-GG.css">
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <img class="navbar-brand" src="img/fittuddlogo.jpeg" alt="Fittudd Logo" href="#">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#founders">Founders</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg glass-navbar sticky-top shadow-lg py-2" style="background:rgba(20,20,20,0.92);backdrop-filter:blur(8px);box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+    <div class="container">
+        <img class="navbar-brand" src="img/fittuddlogo.jpeg" alt="Fittudd Logo" style="height:44px;border-radius:12px;box-shadow:0 2px 8px rgba(60,60,60,0.09);">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#founders">Founders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
     
     <div class="hero-and-trusted">
         <section class="hero text-center pt-5 pb-0">
@@ -367,6 +107,7 @@
     <section id="portfolio" class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">ผลงานของเรา</h2>
+
             <!-- Carousel -->
             <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -414,8 +155,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+            <div class="row justify-content-center">
                 <!-- Carousel Controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
                     <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
@@ -726,7 +467,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="py-5 bg-light" class=" class="card fade-in">
         <div class="container">
             <h2 class="section-title text-center mb-4">ติดต่อเรา</h2>
             <div class="row justify-content-center">
@@ -765,6 +506,7 @@
     <!-- Bootstrap JS & Main JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
+    <script src="script-GG.js"></script>
 </body>
 
 </html>
