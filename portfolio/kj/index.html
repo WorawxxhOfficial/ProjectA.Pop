@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Kj Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Funnel+Display:wght@300..800&display=swap');
     </style>
 </head>
 
 <body>
-    <h2 class="logo">PORNPAWEE K.</h2>
-    <h2 class="desc"> We need to surround ourselves <br> with beautiful people, art, brands, <br>
-        videos, websites and content. </h2>
-    <header class="main-header">
-        <img class="face" src="img/headerface.jpg" alt="">
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li><a href="#about">About</a></li>
-                <li><a href="#works">Works</a></li>
-                <li><a href="#sayhello">Say hello</a></li>
-            </ul>
-        </nav>
-        <h1 class="title">I'm <span class="spin-star">*</span> KJ</h1>
-    </header>
+    <section id="header">
+        <h2 class="logo">PORNPAWEE K.</h2>
+        <h2 class="desc"> We need to surround ourselves <br> with beautiful people, art, brands, <br>
+            videos, websites and content. </h2>
+        <header class="main-header">
+            <img class="face" src="img/headerface.jpg" alt="">
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#sayhello">Say hello</a></li>
+                </ul>
+            </nav>
+            <h1 class="title">I'm <span class="spin-star">*</span> KJ</h1>
+        </header>
 
-    <div class="animation-container">
-        <img class="wall" src="img/cement-texture.jpg" alt="">
-        <img class="walkperson" src="img/blurwalkingby.png" alt="">
-    </div>
+        <div class="animation-container">
+            <img class="wall" src="img/cement-texture.jpg" alt="">
+            <img class="walkperson" src="img/blurwalkingby.png" alt="">
+        </div>
+    </section>
 
     <section id="about">
         <h2>About</h2>
@@ -88,7 +91,10 @@
                         <span>Webapp Design</span>
                         <span>Prototyping</span>
                     </div>
-                    <div class="work-preview"><img src="img/reviewder.jpg" alt="ReviewDer preview"></div>
+                    <div class="work-preview carousel"
+                        data-images='["img/reviewder.jpg","img/reviewder2.png","img/reviewder3.png","img/reviewder4.png"]'>
+                        <img class="carousel-img" src="img/reviewder.jpg" alt="ReviewDer preview">
+                    </div>
                 </div>
             </li>
             <li>
@@ -99,7 +105,10 @@
                         <span>Website Design</span>
                         <span>Prototyping</span>
                     </div>
-                    <div class="work-preview"><img src="img/pemlyzer.png" alt="P-Emlyzer preview"></div>
+                    <div class="work-preview carousel"
+                        data-images='["img/p-emlyzer.png","img/p-emlyzer2.png","img/p-emlyzer3.jpeg"]'>
+                        <img class="carousel-img" src="img/pemlyzer.png" alt="P-Emlyzer preview">
+                    </div>
                 </div>
             </li>
             <li>
@@ -109,7 +118,9 @@
                         <span>UX/UI Design</span>
                         <span>Illustration</span>
                     </div>
-                    <div class="work-preview"><img src="img/yawye1.png" alt="You Are What You Eat preview">
+                    <div class="work-preview carousel"
+                        data-images='["img/yawye.png","img/yawye1.png","img/yawye2.png"]'>
+                        <img class="carousel-img" src="img/yawye.png" alt="You Are What You Eat preview">
                     </div>
                 </div>
             </li>
@@ -146,7 +157,9 @@
     </section>
     <section id="sayhello">
         <img class="longleg" src="img/longleg.jpeg" alt="">
-        <h2>Say hello</h2>
+        <a href="#header" class="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
         <p class="sayhello-message">
             You've hit the footer, <br>
             thanks for stopping by. <br>
@@ -203,6 +216,23 @@
                     showPosition(idx);
                 }, 2200);
             }
+        });
+        // Auto-animating carousel for work-preview (ReviewDer example)
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const images = JSON.parse(carousel.getAttribute('data-images'));
+            const imgEl = carousel.querySelector('.carousel-img');
+            let idx = 0;
+            function show(idxNew) {
+                idx = (idxNew + images.length) % images.length;
+                imgEl.classList.add('fade');
+                setTimeout(() => {
+                    imgEl.src = images[idx];
+                    imgEl.classList.remove('fade');
+                }, 300);
+            }
+            setInterval(() => {
+                show(idx + 1);
+            }, 1500);
         });
     </script>
 
