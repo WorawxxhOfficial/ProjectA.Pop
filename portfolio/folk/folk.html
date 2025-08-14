@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>พัทธดนย์ ดวงใจ (โฟล์ค) | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="folk.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">Folk Phattadon</div>
+    <div class="menu">
+      <a href="#about" class="active">เกี่ยวกับ</a>
+      <a href="#skills">ทักษะ</a>
+      <a href="#edu">การศึกษา</a>
+      <a href="#projects">ผลงาน</a>
+      <a href="#contact">ติดต่อ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header id="about" class="hero">
+  <div class="wrap">
+    <img src="folk.jpg" alt="โปรไฟล์ พัทธดนย์ ดวงใจ" class="avatar">
+    <div>
+      <h1 class="title">พัทธดนย์ ดวงใจ (โฟล์ค)</h1>
+      <div class="role">Tester</div>
+      <p class="bio">ชอบเล่น Ultimate Frisbee · ชอบดนตรี · เรียนก็ได้อยู่</p>
+    </div>
+  </div>
+</header>
+
+<!-- Skills -->
+<section id="skills" class="section">
+  <h2 class="h2">ทักษะ</h2>
+  <div class="chips">
+    <span class="chip">HTML</span>
+    <span class="chip">CSS</span>
+    <span class="chip">JavaScript</span>
+    <span class="chip">Figma</span>
+    <span class="chip">n8n</span>
+    <span class="chip">Docker</span>
+    <span class="chip">Make.com</span>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="edu" class="section">
+  <h2 class="h2">การศึกษา & ข้อมูลทั่วไป</h2>
+  <ul class="list">
+    <li class="card"><b>อนุบาล–ม.6</b> โรงเรียนอัสสัมชัญลำปาง</li>
+    <li class="card"><b>ปัจจุบัน</b> ปี 2 มหาวิทยาลัยเชียงใหม่ – CAMT (DII)</li>
+    <li class="card">เกิด 23/11/2548 </li>
+  </ul>
+</section>
+
+<!-- Projects -->
+<section id="projects" style="max-width:980px;margin:26px auto;padding:0 16px">
+  <h2 style="margin:0 0 12px;color:#3F6E8C;font-size:1.45rem">ผลงาน</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+    <!-- Project 1 -->
+    <article style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 12px 28px rgba(0,0,0,.06);overflow:hidden">
+      <div class="thumb" style="aspect-ratio:16/9;background:#eef2f4;overflow:hidden;cursor:zoom-in">
+        <img src="project1.png" alt="Fitness Booking – Figma" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover" onclick="openPreview(this)">
+      </div>
+      <div style="padding:12px 14px">
+        <h3 style="margin:.3rem 0 .2rem;font-size:1.05rem"> UX/UI (Figma)</h3>
+        <p style="margin:.2rem 0 .6rem;color:#475569">ออกแบบตั้งแต่ Wireframe → Prototype โยง Node</p>
+      </div>
+    </article>
+    <!-- Project 2 -->
+    <article style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 12px 28px rgba(0,0,0,.06);overflow:hidden">
+      <div class="thumb" style="aspect-ratio:16/9;background:#eef2f4;overflow:hidden;cursor:zoom-in">
+        <img src="project2.png" alt="n8n / Make.com Flow" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover" onclick="openPreview(this)">
+      </div>
+      <div style="padding:12px 14px">
+        <h3 style="margin:.3rem 0 .2rem;font-size:1.05rem">Messenger Chatbot</h3>
+        <p style="margin:.2rem 0 .6rem;color:#475569">Chatbot make.com </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Preview Overlay -->
+<div id="preview" onclick="this.style.display='none'"
+     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center;padding:16px">
+  <img id="preview-img" src="" alt="" style="max-width:100%;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)">
+</div>
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <h2 class="h2">ติดต่อ</h2>
+  <div class="card">
+    <p style="margin:.2rem 0">📧 <a href="mailto:phattadon_d@cmu.ac.th">phattadon_d@cmu.ac.th</a></p>
+    <p style="margin:.2rem 0">📘Folk Phattadon</p>
+    <form id="msg" style="margin-top:8px">
+      <input required placeholder="ชื่อของคุณ">
+      <input type="email" required placeholder="อีเมล">
+      <textarea required rows="4" placeholder="ข้อความ"></textarea>
+      <button class="cta" type="submit">ส่งข้อความ</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">© 2025 Folk Phattadon</footer>
+
+<script src="folk.js"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@
     --primary-color: #6A1B9A;
     --secondary-color: #E0B0FF;
     --text-color: #F8F8F8;
+    --milky-way-blue: #a3d8f4;
     --font-family: 'Kanit', sans-serif;
     --transition-speed: 0.5s;
 }
@@ -34,7 +35,7 @@ h2 {
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
-    background: -webkit-linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    background: -webkit-linear-gradient(45deg, var(--secondary-color), var(--primary-color), var(--milky-way-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -49,7 +50,7 @@ h2 {
 .header {
     background: rgba(13, 6, 21, 0.8);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(224, 176, 255, 0.1);
+    border-bottom: 1px solid rgba(163, 216, 244, 0.2);
     position: fixed;
     width: 100%;
     top: 0;
@@ -125,7 +126,7 @@ h2 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle, var(--bg-color) 0%, #08050D 100%);
+    background: radial-gradient(circle at center, rgba(163, 216, 244, 0.1) 0%, rgba(13, 6, 21, 0.9) 70%, #08050D 100%);
 }
 .hero-content {
     animation: fadeInScale 1s ease-out forwards;
@@ -135,7 +136,7 @@ h2 {
 .hero-content h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color), var(--secondary-color));
+    background: linear-gradient(45deg, var(--secondary-color), var(--milky-way-blue), var(--primary-color), var(--secondary-color));
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -153,13 +154,13 @@ h2 {
     text-decoration: none;
     font-weight: 700;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 0 10px rgba(106, 27, 154, 0.5);
+    box-shadow: 0 0 10px rgba(163, 216, 244, 0.5);
     display: inline-block;
     margin-top: 2rem;
 }
 .cta-button:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 5px 20px rgba(106, 27, 154, 0.8);
+    box-shadow: 0 5px 20px rgba(163, 216, 244, 0.8);
 }
 .cta-button-small {
     display: inline-block;
@@ -170,11 +171,11 @@ h2 {
     text-decoration: none;
     font-weight: 700;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 5px rgba(106, 27, 154, 0.5);
+    box-shadow: 0 0 5px rgba(163, 216, 244, 0.5);
 }
 .cta-button-small:hover {
     transform: translateY(-3px);
-    box-shadow: 0 3px 10px rgba(106, 27, 154, 0.8);
+    box-shadow: 0 3px 10px rgba(163, 216, 244, 0.8);
 }
 
 /* Animations */
@@ -223,14 +224,14 @@ h2 {
     max-width: 350px;
     height: auto;
     border-radius: 20px;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 0 30px rgba(106, 27, 154, 0.7);
+    border: 3px solid rgba(163, 216, 244, 0.5);
+    box-shadow: 0 0 30px rgba(163, 216, 244, 0.7);
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .profile-photo img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(106, 27, 154, 1);
+    box-shadow: 0 0 50px rgba(163, 216, 244, 1);
 }
 .about-text-container {
     display: flex;
@@ -252,7 +253,7 @@ h2 {
 }
 .about-box-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 40px var(--primary-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 40px var(--milky-way-blue);
 }
 .about-box-card h3 {
     margin-top: 0;
@@ -262,143 +263,135 @@ h2 {
     color: #CFCFCF;
 }
 
-/* Skills Section Styles */
+/* Skills Section - Accordion Styles */
 #skills {
     padding-top: 10rem;
 }
-
 .skills-content {
     max-width: 1000px;
     margin: auto;
     text-align: center;
 }
-
 .skills-header {
     margin-bottom: 4rem;
 }
-
 .skills-header h2 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin: 0;
 }
-
 .tagline {
     font-size: clamp(1rem, 2vw, 1.5rem);
     color: var(--secondary-color);
     margin-top: 0.5rem;
     font-weight: 300;
 }
-
-.skills-grid {
+.accordion-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    text-align: left;
 }
-
-.skill-bar-card {
+.accordion-item {
     background: #1a0f2b;
     border-radius: 15px;
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
-
-.skill-bar-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--primary-color);
+.accordion-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--milky-way-blue);
 }
-
-.skill-label {
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.accordion-header:hover {
+    background-color: #2b1f3c;
+}
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex: 1;
-    text-align: left;
 }
-
-.skill-label h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    font-weight: 400;
-    color: var(--text-color);
+.accordion-header .accordion-icon {
+    transition: transform 0.3s ease;
+    color: var(--milky-way-blue);
 }
-
-.skill-icon {
-    font-size: 2rem;
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 1.5rem;
+}
+.accordion-content.active {
+    max-height: 500px;
+    padding: 1.5rem;
+}
+.skill-bar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.skill-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.skill-name {
+    width: 150px;
+    font-size: 1rem;
     color: var(--secondary-color);
-    width: 2.5rem;
-    text-align: center;
 }
-
-.skill-bar-container {
+.skill-bar-wrapper {
+    flex-grow: 1;
     background: rgba(224, 176, 255, 0.1);
     height: 10px;
     border-radius: 5px;
-    width: 250px;
     position: relative;
     overflow: hidden;
 }
-
 .skill-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--milky-way-blue), var(--secondary-color));
     border-radius: 5px;
     position: absolute;
     top: 0;
     left: 0;
     animation: fillSkillBar 2s ease-out forwards;
 }
-
 .skill-percent {
     width: 50px;
     text-align: right;
     font-size: 1rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
 }
 
-/* Animations */
+/* Skill level definitions */
 @keyframes fillSkillBar {
-    from {
-        width: 0;
-    }
-    to {
-        width: var(--skill-level);
-    }
+    from { width: 0; }
+    to { width: var(--skill-level); }
 }
-
-/* Define skill levels */
-.skill-bar.backend {
-    --skill-level: 65%;
-}
-
-.skill-bar.database {
-    --skill-level: 70%;
-}
-
-.skill-bar.uiux {
-    --skill-level: 55%;
-}
-
-.skill-bar.programming {
-    --skill-level: 60%;
-}
-
-.skill-bar.git {
-    --skill-level: 75%;
-}
-
-.skill-bar.networking {
-    --skill-level: 50%;
-}
-
-.skill-bar.gaming {
-    --skill-level: 80%;
-}
+.skill-bar.java { --skill-level: 85%; }
+.skill-bar.kotlin { --skill-level: 70%; }
+.skill-bar.python { --skill-level: 60%; }
+.skill-bar.spring { --skill-level: 65%; }
+.skill-bar.ktor { --skill-level: 55%; }
+.skill-bar.mysql { --skill-level: 70%; }
+.skill-bar.postgresql { --skill-level: 65%; }
+.skill-bar.communication { --skill-level: 75%; }
+.skill-bar.teamwork { --skill-level: 80%; }
+.skill-bar.problemsolving { --skill-level: 70%; }
 
 
 /* Projects Section */
@@ -417,7 +410,7 @@ h2 {
 }
 .project-card:hover {
     transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 40px var(--primary-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 40px var(--milky-way-blue);
 }
 .project-card img {
     width: 100%;
@@ -458,7 +451,7 @@ h2 {
 .contact-form input,
 .contact-form textarea {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(224, 176, 255, 0.2);
+    border: 1px solid rgba(163, 216, 244, 0.2);
     border-radius: 10px;
     padding: 1rem;
     color: var(--text-color);
@@ -468,8 +461,8 @@ h2 {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 10px rgba(224, 176, 255, 0.3);
+    border-color: var(--milky-way-blue);
+    box-shadow: 0 0 10px rgba(163, 216, 244, 0.3);
 }
 
 /* Footer */
@@ -477,7 +470,7 @@ h2 {
     text-align: center;
     padding: 2rem;
     background-color: #0d0615;
-    border-top: 1px solid rgba(224, 176, 255, 0.1);
+    border-top: 1px solid rgba(163, 216, 244, 0.1);
 }
 .social-links {
     margin-top: 1rem;
@@ -491,7 +484,7 @@ h2 {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 .social-links a:hover {
-    color: var(--secondary-color);
+    color: var(--milky-way-blue);
     transform: translateY(-5px);
 }
 
@@ -523,24 +516,35 @@ h2 {
         top: 0;
         right: 0;
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         background-color: var(--bg-color);
         transform: translateX(100%);
         transition: transform 0.5s ease-in-out;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: 60px;
     }
     .nav-links-container.active {
         transform: translateX(0);
+        /* ลบ padding-top: 250px; ออก */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* จัดให้เนื้อหาอยู่กึ่งกลางแนวนอน */
+        justify-content: center; /* จัดให้เนื้อหาอยู่กึ่งกลางแนวตั้ง */
     }
     .nav-links {
         flex-direction: column;
-        gap: 3rem;
+        gap: 2rem; /* ปรับระยะห่างระหว่างเมนู */
         text-align: center;
+        width: 100%;
+        margin-top: -10rem; /* ปรับตำแหน่งเมนูให้สูงขึ้นเล็กน้อย */
     }
     .nav-links li a {
-        font-size: 2rem;
+        font-size: 1.2rem;
+        padding: 0.8rem 0;
+        display: block;
     }
     .skill-bar-card {
         flex-direction: column;
@@ -551,15 +555,5 @@ h2 {
     .skill-label {
         flex-direction: column;
         text-align: center;
-    }
-
-    .skill-bar-container {
-        width: 80%;
-        max-width: 300px;
-        margin: 1rem 0;
-    }
-
-    .skill-percent {
-        margin-top: 0.5rem;
     }
 }
